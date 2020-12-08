@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AboutHeroBanner from "./components/AboutPage/AboutHeroBanner";
 import ContactCards from "./components/Contactpage/ContactCards";
 import ContactHeroBanner from "./components/Contactpage/ContactHeroBanner";
+import ContactMapForm from "./components/Contactpage/ContactMapForm";
 import HomeHeroBanner from "./components/Homepage/HomeHeroBanner";
 import HomeServices from "./components/Homepage/HomeServices";
 
@@ -75,6 +76,8 @@ function App() {
 								<ContactHeroBanner />
 
 								<ContactCards />
+
+								<ContactMapForm />
 
 								<PortfolioBanner />
 							</Fragment>
