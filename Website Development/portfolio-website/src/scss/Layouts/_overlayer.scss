@@ -1,0 +1,29 @@
+.navigationOverlayer {
+	height: 0%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	background-color: $primaryColor;
+	overflow-y: hidden;
+	transition: 1s;
+
+	.navigationOverlayerLinks {
+		height: 100%;
+
+		.link-item {
+			color: $whiteColor;
+			font-family: "Poppins", sans-serif;
+			font-size: 3.5rem;
+			line-height: 4rem;
+			font-weight: 700;
+			margin-bottom: 2rem;
+			display: block;
+
+			&:hover {
+				color: $secondaryColor !important;
+			}
+		}
+	}
+}

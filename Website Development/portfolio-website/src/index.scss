@@ -1,0 +1,25 @@
+@import "scss/variables";
+@import "scss/mixin";
+@import "scss/typography";
+@import "scss/spacing";
+@import "scss/buttons";
+
+@import "scss/Layouts/overlayer";
+@import "scss/Layouts/pageFooter";
+@import "scss/Layouts/textImgBanner";
+
+@import "scss/Components/imageBanner";
+@import "scss/Components/homeServices";
+@import "scss/Components/contactFormMap";
+@import "scss/Components/timeLine";
+
+body {
+	color: $primaryColor;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: unset;
+}

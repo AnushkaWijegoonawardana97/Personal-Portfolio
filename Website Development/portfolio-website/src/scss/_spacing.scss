@@ -1,0 +1,39 @@
+.sectionPadding {
+	padding: 7.5rem 0rem;
+
+	&-x {
+		padding: 0rem 7.5rem;
+	}
+
+	&-to {
+		padding: unset;
+		padding-top: 7.5rem;
+	}
+}
+
+.sectionInnerPadding {
+	padding: 2rem;
+
+	&-y {
+		padding: 2rem 0rem;
+	}
+
+	&-x {
+		padding: 0rem 2rem;
+	}
+
+	&-ro {
+		padding: unset;
+		padding-right: 2rem;
+	}
+}
+
+.subSectionSpacing {
+	margin-bottom: 3rem;
+}
+
+.lineSperator {
+	height: 0.25rem;
+	width: 100%;
+	background-color: $primaryColor;
+}

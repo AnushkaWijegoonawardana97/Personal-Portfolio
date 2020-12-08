@@ -1,0 +1,15 @@
+.imageBanner {
+	min-height: 50vh;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	@include boxShadow;
+
+	&-homepage {
+		background-image: url("../../assets/images/HomepageImageBanner.jpg");
+	}
+
+	&-aboutpage {
+		background-image: url("../../assets/images/AboutpageImageBanner.jpg");
+	}
+}

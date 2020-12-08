@@ -1,0 +1,34 @@
+.theme-btn {
+	font-family: "Fjalla One", sans-serif;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	text-transform: uppercase;
+	color: $primaryColor;
+	transition: 0.5s;
+
+	&-light {
+		color: $whiteColor;
+
+		&:hover {
+			color: $whiteColor !important;
+			border-color: $whiteColor !important;
+		}
+	}
+
+	&:hover {
+		color: $primaryColor;
+		border-bottom: 0.25rem solid $primaryColor;
+	}
+}
+
+.btn-form {
+	font-family: "Fjalla One", sans-serif;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	text-transform: uppercase;
+	padding: 0.5rem 2rem;
+	border: unset;
+	background-color: $primaryColor;
+	color: $whiteColor;
+	text-transform: uppercase;
+}
