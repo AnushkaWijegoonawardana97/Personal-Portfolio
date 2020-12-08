@@ -8,5 +8,11 @@
 		&:last-child {
 			margin-bottom: unset;
 		}
+
+		.timeline-card-logo {
+			img {
+				@include boxShadow;
+			}
+		}
 	}
 }
