@@ -64,7 +64,7 @@ function Overlayer() {
 					onClick={closeOverlayer}
 				>
 					contact
-					<span className="smallerText d-block">MY PROJECTSsay hello</span>
+					<span className="smallerText d-block">say hello</span>
 				</Link>
 			</div>
 		</div>

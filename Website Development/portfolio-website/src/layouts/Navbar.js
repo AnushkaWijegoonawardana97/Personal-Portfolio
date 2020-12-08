@@ -15,7 +15,7 @@ function Navbar() {
 	};
 
 	return (
-		<div className="sectionInnerPadding d-flex align-items-center justify-content-between overlayerNavHeader">
+		<div className="sectionInnerPadding d-flex align-items-center justify-content-between overlayerNavHeader fixed-top">
 			<Link to="/">
 				<img
 					src={DarkLogo}

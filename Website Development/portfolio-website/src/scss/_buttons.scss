@@ -6,6 +6,15 @@
 	color: $primaryColor;
 	transition: 0.5s;
 
+	&-light {
+		color: $whiteColor;
+
+		&:hover {
+			color: $whiteColor !important;
+			border-color: $whiteColor !important;
+		}
+	}
+
 	&:hover {
 		color: $primaryColor;
 		border-bottom: 0.25rem solid $primaryColor;

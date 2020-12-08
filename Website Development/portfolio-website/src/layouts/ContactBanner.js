@@ -10,6 +10,10 @@ function ContactBanner() {
 				<div className="bannerText">
 					Need more information or want to get in touch?
 				</div>
+
+				<Link className="theme-btn theme-btn-light" to="/contact">
+					get in touch
+				</Link>
 			</div>
 		</div>
 	);
