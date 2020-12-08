@@ -1,0 +1,13 @@
+.theme-btn {
+	font-family: "Fjalla One", sans-serif;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	text-transform: uppercase;
+	color: $primaryColor;
+	transition: 0.5s;
+
+	&:hover {
+		color: $primaryColor;
+		border-bottom: 0.25rem solid $primaryColor;
+	}
+}
