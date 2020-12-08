@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import cv from "../../assets/Anushka Wijegoonawardana CV.pdf";
 
 function AboutHeroBanner() {
 	return (
@@ -14,9 +14,9 @@ function AboutHeroBanner() {
 					I could say I'm a foodie.
 				</p>
 
-				<Link className="theme-btn" to="/about">
+				<a className="theme-btn" href={cv} target="_blank" rel="noreferrer">
 					DOWNLOAD MY CV
-				</Link>
+				</a>
 			</div>
 		</div>
 	);

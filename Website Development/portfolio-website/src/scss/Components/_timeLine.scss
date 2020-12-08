@@ -1,0 +1,12 @@
+.timeLineContainer {
+	.timeline-card {
+		display: grid !important;
+		grid-template-columns: 2fr 3fr 1fr;
+		grid-gap: 2rem;
+		margin-bottom: 3rem;
+
+		&:last-child {
+			margin-bottom: unset;
+		}
+	}
+}
