@@ -20,9 +20,11 @@ import Pagefooter from "./layouts/Pagefooter";
 import PortfolioBanner from "./layouts/PortfolioBanner";
 import Timeline from "./components/Timeline/Timeline";
 import TimelineHeader from "./components/Timeline/TimelineHeader";
+import SkillSlider from "./components/SkillSlider/SkillSlider";
 
 function App() {
 	const [timelineitems, settimelineitems] = useState([]);
+	const [technology, settechnology] = useState([]);
 	const [loading, setloading] = useState(false);
 
 	// Fetch Timeline Data
@@ -30,7 +32,7 @@ function App() {
 		const fetchTimelineItems = async () => {
 			setloading(true);
 			const response = await axios(
-				"https://wijegoonawardana-dashboard.herokuapp.com/Experiences"
+				"https://anushkaportfoliodb.herokuapp.com/Experiences"
 			);
 
 			console.log(response.data);
@@ -39,6 +41,22 @@ function App() {
 		};
 
 		fetchTimelineItems();
+	}, []);
+
+	// Fetching Technologies & Skills Data
+	useEffect(() => {
+		const fetchTechSkill = async () => {
+			setloading(true);
+			const response = await axios(
+				"https://anushkaportfoliodb.herokuapp.com/Technologies"
+			);
+
+			console.log(response.data);
+			settechnology(response.data);
+			setloading(false);
+		};
+
+		fetchTechSkill();
 	}, []);
 
 	return (
@@ -80,6 +98,8 @@ function App() {
 
 									<Timeline loading={loading} timelineitems={timelineitems} />
 								</section>
+
+								<SkillSlider loading={loading} technologies={technology} />
 
 								<PortfolioBanner />
 							</Fragment>

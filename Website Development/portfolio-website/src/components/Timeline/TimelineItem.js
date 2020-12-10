@@ -1,7 +1,14 @@
 import React from "react";
 
 function TimelineItem({
-	timeline: { Name, Organization, Timeline, ExperienceType, Description, Logo },
+	timeline: {
+		ExperienceName,
+		OrganizationName,
+		Timeline,
+		ExperienceType,
+		Description,
+		OrganizationLogo,
+	},
 }) {
 	return (
 		<div className="timeline-card">
@@ -12,18 +19,14 @@ function TimelineItem({
 			</div>
 
 			<div className="timeline-card-details">
-				<p className="smallerText">{Organization}</p>
+				<p className="smallerText">{OrganizationName}</p>
 
-				<div className="secondarHeading">{Name}</div>
+				<div className="secondarHeading">{ExperienceName}</div>
 
 				<p>{Description}</p>
 			</div>
 			<div className="timeline-card-logo">
-				<img
-					src={`https://wijegoonawardana-dashboard.herokuapp.com${Logo.url}`}
-					alt=""
-					className="img-fluid"
-				/>
+				<img src={OrganizationLogo} alt="" className="img-fluid" />
 			</div>
 		</div>
 	);
