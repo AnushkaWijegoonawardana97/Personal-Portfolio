@@ -20,6 +20,7 @@ import Pagefooter from "./layouts/Pagefooter";
 import PortfolioBanner from "./layouts/PortfolioBanner";
 import Timeline from "./components/Timeline/Timeline";
 import TimelineHeader from "./components/Timeline/TimelineHeader";
+import SkillSlider from "./components/SkillSlider/SkillSlider";
 
 function App() {
 	const [timelineitems, settimelineitems] = useState([]);
@@ -30,7 +31,7 @@ function App() {
 		const fetchTimelineItems = async () => {
 			setloading(true);
 			const response = await axios(
-				"https://wijegoonawardana-dashboard.herokuapp.com/Experiences"
+				"https://anushkaportfoliodb.herokuapp.com/Experiences"
 			);
 
 			console.log(response.data);
@@ -80,6 +81,8 @@ function App() {
 
 									<Timeline loading={loading} timelineitems={timelineitems} />
 								</section>
+
+								<SkillSlider />
 
 								<PortfolioBanner />
 							</Fragment>
