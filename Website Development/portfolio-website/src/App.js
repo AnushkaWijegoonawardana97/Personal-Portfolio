@@ -21,10 +21,14 @@ import PortfolioBanner from "./layouts/PortfolioBanner";
 import Timeline from "./components/Timeline/Timeline";
 import TimelineHeader from "./components/Timeline/TimelineHeader";
 import SkillSlider from "./components/SkillSlider/SkillSlider";
+import PortfolioHeader from "./components/Portfolio/PortfolioHeader";
+import PortfolioGrid from "./components/Portfolio/PortfolioGrid";
+import ShowcaseGrid from "./components/Showcase/ShowcaseGrid";
 
 function App() {
 	const [timelineitems, settimelineitems] = useState([]);
 	const [technology, settechnology] = useState([]);
+	const [portfolios, setportfolios] = useState([]);
 	const [loading, setloading] = useState(false);
 
 	// Fetch Timeline Data
@@ -59,6 +63,22 @@ function App() {
 		fetchTechSkill();
 	}, []);
 
+	// Fetching Portfolios
+	useEffect(() => {
+		const fetchPortfolios = async () => {
+			setloading(true);
+			const response = await axios(
+				"https://anushkaportfoliodb.herokuapp.com/Portfolios"
+			);
+
+			console.log(response.data);
+			setportfolios(response.data);
+			setloading(false);
+		};
+
+		fetchPortfolios();
+	}, []);
+
 	return (
 		<Router>
 			<Overlayer />
@@ -78,6 +98,12 @@ function App() {
 								<HomeServices />
 
 								<LineSperator />
+
+								<section className="sectionPadding">
+									<PortfolioHeader />
+
+									<PortfolioGrid loading={loading} portfolios={portfolios} />
+								</section>
 
 								<ContactBanner />
 							</Fragment>
@@ -112,6 +138,8 @@ function App() {
 						render={(props) => (
 							<Fragment>
 								<PortfolioHeroBanner />
+
+								<ShowcaseGrid loading={loading} portfolios={portfolios} />
 
 								<ContactBanner />
 							</Fragment>

@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 import DarkLogo from "../assets/DarkHeaderLogo.png";
 
 function Navbar() {
-	const menuIcon = {
-		fontSize: "3.75rem",
-		color: "#161619",
-	};
-
 	const openOverlayer = () => {
 		// e.preventDefault();
 		document.getElementById("navigationOverlayer").style.height = "100%";
@@ -20,12 +15,12 @@ function Navbar() {
 				<img
 					src={DarkLogo}
 					alt="Anushka Wijegoonawardana Logo"
-					className="img-fluid"
+					className="img-fluid logoImg"
 				/>
 			</Link>
 
 			<Link onClick={openOverlayer}>
-				<i className="fas fa-bars" style={menuIcon}></i>
+				<i className="fas fa-bars menuIcon"></i>
 			</Link>
 		</div>
 	);

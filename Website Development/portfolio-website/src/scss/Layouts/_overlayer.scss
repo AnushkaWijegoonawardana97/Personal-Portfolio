@@ -9,6 +9,10 @@
 	overflow-y: hidden;
 	transition: 1s;
 
+	.menuIcon {
+		color: $whiteColor !important;
+	}
+
 	.navigationOverlayerLinks {
 		height: 100%;
 
@@ -26,4 +30,17 @@
 			}
 		}
 	}
+}
+
+.overlayerNavHeader {
+	background-color: $whiteColor;
+}
+
+.menuIcon {
+	color: $primaryColor;
+	font-size: 3rem;
+}
+
+.logoImg {
+	height: 3rem;
 }

@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 import LightLogo from "../assets/LightHeaderLogo.png";
 
 function Overlayer() {
-	const menuIcon = {
-		fontSize: "3.75rem",
-		color: "#fff",
-	};
-
 	const closeOverlayer = () => {
 		// e.preventDefault();
 		document.getElementById("navigationOverlayer").style.height = "0%";
@@ -21,12 +16,12 @@ function Overlayer() {
 					<img
 						src={LightLogo}
 						alt="Anushka Wijegoonawardana Logo"
-						className="img-fluid"
+						className="img-fluid logoImg"
 					/>
 				</Link>
 
 				<Link onClick={closeOverlayer}>
-					<i className="fas fa-times" style={menuIcon}></i>
+					<i className="fas fa-times menuIcon"></i>
 				</Link>
 			</nav>
 
