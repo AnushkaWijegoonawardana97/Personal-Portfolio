@@ -59,3 +59,60 @@
 	width: 100%;
 	background-color: $primaryColor;
 }
+
+// Responsive Settings
+@include screen-lg {
+	.sectionPadding {
+		padding: 6rem 0rem;
+
+		&-x {
+			padding: 0rem 6rem;
+		}
+
+		&-to {
+			padding-top: 6rem;
+		}
+
+		&-bo {
+			padding-bottom: 6rem;
+		}
+	}
+
+	.sectionInnerPadding {
+		padding: 1.5rem;
+
+		&-y {
+			padding: 1.5rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 1.5rem;
+		}
+
+		&-ro {
+			padding: unset;
+			padding-right: 1.5rem;
+		}
+	}
+
+	.subSectionInnerPadding {
+		padding: 1rem;
+
+		&-y {
+			padding: 1rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 1rem;
+		}
+
+		&-ro {
+			padding: unset;
+			padding-right: 1rem;
+		}
+	}
+
+	.subSectionSpacing {
+		margin-bottom: 2rem;
+	}
+}
