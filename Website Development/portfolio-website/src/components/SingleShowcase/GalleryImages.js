@@ -16,8 +16,8 @@ function GalleryImages({ PortfolioGalleries }) {
 	return (
 		<div>
 			<SlickSlider {...settings}>
-				{PortfolioGalleries.map((PortfolioGallery) => (
-					<img src={PortfolioGallery} alt="" />
+				{PortfolioGalleries.map((PortfolioGallery, index) => (
+					<img src={PortfolioGallery} alt="" key={index} />
 				))}
 			</SlickSlider>
 		</div>

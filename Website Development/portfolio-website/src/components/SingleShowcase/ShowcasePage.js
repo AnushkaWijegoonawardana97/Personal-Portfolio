@@ -21,7 +21,7 @@ function ShowcasePage() {
 				`https://anushkaportfoliodb.herokuapp.com/Portfolios/${portfolioID}`
 			);
 
-			// console.log(response.data);
+			console.log(response.data);
 			setportfolio(response.data);
 			setloading(false);
 		};
@@ -52,7 +52,7 @@ function ShowcasePage() {
 						<p className="subSectionSpacing">{portfolio.PortfolioSummary}</p>
 
 						<a
-							href="google.com"
+							href={portfolio.LiveLink}
 							target="_blank"
 							rel="noreferrer"
 							className="theme-btn"
