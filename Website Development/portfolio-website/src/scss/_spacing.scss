@@ -33,6 +33,23 @@
 	}
 }
 
+.subSectionInnerPadding {
+	padding: 1.5rem;
+
+	&-y {
+		padding: 1.5rem 0rem;
+	}
+
+	&-x {
+		padding: 0rem 1.5rem;
+	}
+
+	&-ro {
+		padding: unset;
+		padding-right: 1.5rem;
+	}
+}
+
 .subSectionSpacing {
 	margin-bottom: 3rem;
 }

@@ -54,3 +54,20 @@
 		}
 	}
 }
+
+.portfolioCategories {
+	// color: $whiteColor;
+	display: inline;
+
+	span {
+		&::before {
+			content: "/";
+		}
+
+		&:first-child {
+			&::before {
+				display: none;
+			}
+		}
+	}
+}

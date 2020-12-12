@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ShowcaseGridItem({
-	portfolio: { PortfolioName, thumbnailURL, categories },
+	portfolio: { PortfolioName, thumbnailURL, categories, id },
 }) {
 	const CategoryList = categories.map((category) => (
 		<span key={category.id}> {category.CategoryName} </span>
 	));
 
 	return (
-		<div className="portfolioGridItem">
+		<Link to={`/showcase/${id}`} className="portfolioGridItem">
 			<div className="portfolioImg">
 				<img className="img-fluid" src={thumbnailURL} alt={PortfolioName} />
 			</div>
@@ -23,7 +24,7 @@ function ShowcaseGridItem({
 					</div>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 }
 

@@ -3,15 +3,31 @@ import SlickSlider from "react-slick";
 import SliderItem from "./SliderItem";
 
 function SkillSlider({ loading, technologies }) {
-	const settings = {
-		dots: false,
-		infinite: true,
-		autoplay: true,
-		speed: 1000,
-		slidesToShow: 6,
-		slidesToScroll: 2,
-		centerPadding: "2rem",
-	};
+	// console.log(technologies.length);
+
+	let settings;
+
+	if (technologies.length >= 6) {
+		settings = {
+			dots: false,
+			infinite: true,
+			autoplay: true,
+			speed: 1000,
+			slidesToShow: 6,
+			slidesToScroll: 2,
+			centerPadding: "2rem",
+		};
+	} else {
+		settings = {
+			dots: false,
+			infinite: true,
+			autoplay: true,
+			speed: 1000,
+			slidesToShow: technologies.length,
+			slidesToScroll: 2,
+			centerPadding: "2rem",
+		};
+	}
 
 	if (loading) {
 		return null;

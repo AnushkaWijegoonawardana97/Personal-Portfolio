@@ -30,7 +30,6 @@ function App() {
 	const [timelineitems, settimelineitems] = useState([]);
 	const [technology, settechnology] = useState([]);
 	const [portfolios, setportfolios] = useState([]);
-	const [portfolio, setportfolio] = useState([]);
 	const [loading, setloading] = useState(false);
 
 	// Fetch Timeline Data
@@ -80,18 +79,6 @@ function App() {
 
 		fetchPortfolios();
 	}, []);
-
-	// Fetch Single Portfolio Data
-	const getPortfolio = async (portfolioID) => {
-		setloading(true);
-		const res = await axios.get(
-			`https://anushkaportfoliodb.herokuapp.com/Portfolios/${portfolioID}`
-		);
-
-		console.log(res.data);
-		setportfolio(res.data);
-		setloading(false);
-	};
 
 	return (
 		<Router>
@@ -165,11 +152,7 @@ function App() {
 						path="/showcase/:id"
 						render={(props) => (
 							<Fragment>
-								<ShowcasePage
-									{...props}
-									loading={loading}
-									portfolio={portfolio}
-								/>
+								<ShowcasePage />
 								<ContactBanner />
 							</Fragment>
 						)}
