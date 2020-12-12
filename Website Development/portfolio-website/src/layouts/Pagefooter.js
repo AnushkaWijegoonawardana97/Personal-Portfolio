@@ -18,7 +18,7 @@ function Pagefooter() {
 						rel="noreferrer"
 						className="socialLinkItem"
 					>
-						<i class="fab fa-linkedin-in"></i>
+						<i className="fab fa-linkedin-in"></i>
 					</a>
 
 					<a
@@ -27,7 +27,7 @@ function Pagefooter() {
 						rel="noreferrer"
 						className="socialLinkItem"
 					>
-						<i class="fab fa-instagram"></i>
+						<i className="fab fa-instagram"></i>
 					</a>
 
 					<a
@@ -36,7 +36,7 @@ function Pagefooter() {
 						rel="noreferrer"
 						className="socialLinkItem"
 					>
-						<i class="fab fa-github-alt"></i>
+						<i className="fab fa-github-alt"></i>
 					</a>
 				</div>
 			</div>

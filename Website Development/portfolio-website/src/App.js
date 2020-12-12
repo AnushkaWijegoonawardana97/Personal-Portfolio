@@ -24,11 +24,13 @@ import SkillSlider from "./components/SkillSlider/SkillSlider";
 import PortfolioHeader from "./components/Portfolio/PortfolioHeader";
 import PortfolioGrid from "./components/Portfolio/PortfolioGrid";
 import ShowcaseGrid from "./components/Showcase/ShowcaseGrid";
+import ShowcasePage from "./components/SingleShowcase/ShowcasePage";
 
 function App() {
 	const [timelineitems, settimelineitems] = useState([]);
 	const [technology, settechnology] = useState([]);
 	const [portfolios, setportfolios] = useState([]);
+	const [portfolio, setportfolio] = useState([]);
 	const [loading, setloading] = useState(false);
 
 	// Fetch Timeline Data
@@ -39,7 +41,7 @@ function App() {
 				"https://anushkaportfoliodb.herokuapp.com/Experiences"
 			);
 
-			console.log(response.data);
+			// console.log(response.data);
 			settimelineitems(response.data);
 			setloading(false);
 		};
@@ -55,7 +57,7 @@ function App() {
 				"https://anushkaportfoliodb.herokuapp.com/Technologies"
 			);
 
-			console.log(response.data);
+			// console.log(response.data);
 			settechnology(response.data);
 			setloading(false);
 		};
@@ -71,13 +73,25 @@ function App() {
 				"https://anushkaportfoliodb.herokuapp.com/Portfolios"
 			);
 
-			console.log(response.data);
+			// console.log(response.data);
 			setportfolios(response.data);
 			setloading(false);
 		};
 
 		fetchPortfolios();
 	}, []);
+
+	// Fetch Single Portfolio Data
+	const getPortfolio = async (portfolioID) => {
+		setloading(true);
+		const res = await axios.get(
+			`https://anushkaportfoliodb.herokuapp.com/Portfolios/${portfolioID}`
+		);
+
+		console.log(res.data);
+		setportfolio(res.data);
+		setloading(false);
+	};
 
 	return (
 		<Router>
@@ -141,6 +155,21 @@ function App() {
 
 								<ShowcaseGrid loading={loading} portfolios={portfolios} />
 
+								<ContactBanner />
+							</Fragment>
+						)}
+					/>
+
+					<Route
+						exact
+						path="/showcase/:id"
+						render={(props) => (
+							<Fragment>
+								<ShowcasePage
+									{...props}
+									loading={loading}
+									portfolio={portfolio}
+								/>
 								<ContactBanner />
 							</Fragment>
 						)}

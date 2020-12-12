@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import DarkLogo from "../assets/DarkHeaderLogo.png";
 
 function Navbar() {
-	const openOverlayer = () => {
-		// e.preventDefault();
+	const openOverlayer = (e) => {
+		e.preventDefault();
 		document.getElementById("navigationOverlayer").style.height = "100%";
 	};
 
@@ -19,7 +19,7 @@ function Navbar() {
 				/>
 			</Link>
 
-			<Link onClick={openOverlayer}>
+			<Link to="/" onClick={openOverlayer}>
 				<i className="fas fa-bars menuIcon"></i>
 			</Link>
 		</div>

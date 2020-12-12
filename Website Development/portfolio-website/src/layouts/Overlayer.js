@@ -5,7 +5,6 @@ import LightLogo from "../assets/LightHeaderLogo.png";
 
 function Overlayer() {
 	const closeOverlayer = () => {
-		// e.preventDefault();
 		document.getElementById("navigationOverlayer").style.height = "0%";
 	};
 

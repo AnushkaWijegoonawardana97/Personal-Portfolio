@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function PortfolioGridItem({
-	portfolio: { PortfolioName, thumbnailURL, categories, FeaturedPortfolio },
+	portfolio: { id, PortfolioName, thumbnailURL, categories, FeaturedPortfolio },
 }) {
 	const CategoryList = categories.map((category) => (
 		<span key={category.id}> {category.CategoryName} </span>
@@ -9,7 +10,7 @@ function PortfolioGridItem({
 
 	if (FeaturedPortfolio) {
 		return (
-			<div className="portfolioGridItem">
+			<Link to={`/showcase/${id}`} className="portfolioGridItem">
 				<div className="portfolioImg">
 					<img className="img-fluid" src={thumbnailURL} alt={PortfolioName} />
 				</div>
@@ -24,7 +25,7 @@ function PortfolioGridItem({
 						</div>
 					</div>
 				</div>
-			</div>
+			</Link>
 		);
 	} else {
 		return null;
