@@ -15,9 +15,9 @@
 }
 
 // Responsive Settings
-@include screen-lg {
+@include screen-xlg {
 	.serviceGrid {
-		grid-gap: 1rem;
+		grid-gap: 1.75rem;
 
 		.serviceCard {
 			.primarySubHeading {
