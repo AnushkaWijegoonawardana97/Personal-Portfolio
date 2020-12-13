@@ -111,3 +111,62 @@ p {
 		margin-bottom: -1.25rem;
 	}
 }
+
+@include screen-md {
+	body,
+	p {
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+
+	.smallerText {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+
+	.smallerTextLight {
+		font-family: "Poppins", sans-serif;
+		font-size: 1rem;
+		line-height: 1.5rem;
+		font-weight: 400;
+		margin: unset;
+	}
+
+	.bannerText {
+		font-family: "Poppins", sans-serif;
+		font-size: 2rem;
+		line-height: 2.5rem;
+		font-weight: 400;
+		margin-bottom: 2.5rem;
+	}
+
+	// Primary Heading
+	.primaryHeading {
+		font-family: "Fjalla One", sans-serif;
+		font-size: 3.5rem;
+		line-height: 4rem;
+		margin-bottom: 2rem;
+	}
+
+	.primarySubHeading {
+		font-family: "Fjalla One", sans-serif;
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+
+	.secondarHeading {
+		font-family: "Fjalla One", sans-serif;
+		font-size: 2.5rem;
+		line-height: 3rem;
+		margin-bottom: 2rem;
+	}
+
+	.fadingText {
+		font-family: "Poppins", sans-serif;
+		font-size: 2.5rem;
+		line-height: 3rem;
+		font-weight: 800;
+		color: $secondaryColor;
+		margin-bottom: -1.5rem;
+	}
+}

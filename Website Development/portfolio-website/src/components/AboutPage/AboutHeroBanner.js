@@ -4,7 +4,7 @@ import cv from "../../assets/Anushka Wijegoonawardana CV.pdf";
 function AboutHeroBanner() {
 	return (
 		<div className="sectionPadding row">
-			<div className="col-md-8">
+			<div className="col-lg-8 col-md-10">
 				<div className="primaryHeading">ABOUT ME</div>
 
 				<p className="subSectionSpacing">

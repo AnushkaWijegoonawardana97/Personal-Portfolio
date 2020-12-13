@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function HeroBanner() {
 	return (
 		<div className="sectionPadding row">
-			<div className="col-md-8">
+			<div className="col-lg-8 col-md-10">
 				<p className="smallerText">DEVELOPER / FREELANCER</p>
 
 				<div className="primaryHeading">HELLO, I'M ANUSHKA</div>

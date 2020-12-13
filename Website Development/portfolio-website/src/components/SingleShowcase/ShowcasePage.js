@@ -46,7 +46,7 @@ function ShowcasePage() {
 			<Fragment>
 				{/* Portfolio Inside Header */}
 				<div className="sectionPadding row">
-					<div className="col-md-8">
+					<div className="col-lg-8 col-md-10">
 						<div className="primaryHeading">{portfolio.PortfolioName}</div>
 
 						<p className="subSectionSpacing">{portfolio.PortfolioSummary}</p>
@@ -96,7 +96,7 @@ function ShowcasePage() {
 					</div>
 
 					<div className=" row">
-						<div className="col-md-8">
+						<div className="col-lg-8 col-md-10">
 							<p>{portfolio.Description}</p>
 						</div>
 					</div>

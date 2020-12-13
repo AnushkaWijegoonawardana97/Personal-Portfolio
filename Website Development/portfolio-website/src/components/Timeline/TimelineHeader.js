@@ -3,7 +3,7 @@ import React from "react";
 function TimelineHeader() {
 	return (
 		<div className="row subSectionSpacing">
-			<div className="col-md-8">
+			<div className="col-lg-8 col-md-10">
 				<div className="primaryHeading">TIMELINE</div>
 
 				<p>

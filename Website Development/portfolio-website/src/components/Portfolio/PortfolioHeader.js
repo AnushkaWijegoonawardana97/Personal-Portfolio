@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function PortfolioHeader() {
 	return (
 		<div className="row subSectionSpacing">
-			<div className="col-md-8">
+			<div className="col-lg-8 col-md-10">
 				<div className="primaryHeading">EXPLORE RECENT WORKS</div>
 
 				<p className="subSectionSpacing">
