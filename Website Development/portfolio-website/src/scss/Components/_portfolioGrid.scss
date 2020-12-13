@@ -45,7 +45,8 @@
 			}
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			@include boxShadow;
 
 			.hoverOverlayer {
