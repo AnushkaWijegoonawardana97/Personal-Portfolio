@@ -111,3 +111,99 @@ p {
 		margin-bottom: -1.25rem;
 	}
 }
+
+@include screen-md {
+	body,
+	p {
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+
+	.smallerText {
+		font-size: 0.8rem;
+		line-height: 1.3rem;
+	}
+
+	.smallerTextLight {
+		font-size: 0.8rem;
+		line-height: 1.3rem;
+	}
+
+	.bannerText {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+		margin-bottom: 1.5rem;
+	}
+
+	// Primary Heading
+	.primaryHeading {
+		font-size: 2.5rem;
+		line-height: 3rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.primarySubHeading {
+		font-size: 1.3rem;
+		line-height: 1.8rem;
+	}
+
+	.secondarHeading {
+		font-size: 1.5rem;
+		line-height: 2rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.fadingText {
+		font-size: 1.5rem;
+		line-height: 2rem;
+		margin-bottom: -1rem;
+	}
+}
+
+@include screen-sm {
+	body,
+	p {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+
+	.smallerText {
+		font-size: 0.75rem;
+		line-height: 1.25rem;
+	}
+
+	.smallerTextLight {
+		font-size: 0.75rem;
+		line-height: 1.25rem;
+	}
+
+	.bannerText {
+		font-size: 1.1rem;
+		line-height: 1.6rem;
+		margin-bottom: 1.25rem;
+	}
+
+	// Primary Heading
+	.primaryHeading {
+		font-size: 2rem;
+		line-height: 2.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.primarySubHeading {
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+
+	.secondarHeading {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+		margin-bottom: 1rem;
+	}
+
+	.fadingText {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+		margin-bottom: -0.875rem;
+	}
+}

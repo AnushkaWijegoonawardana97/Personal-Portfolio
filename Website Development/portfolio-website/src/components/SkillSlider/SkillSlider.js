@@ -16,6 +16,23 @@ function SkillSlider({ loading, technologies }) {
 			slidesToShow: 6,
 			slidesToScroll: 2,
 			centerPadding: "2rem",
+			responsive: [
+				{
+					breakpoint: 1080,
+					settings: {
+						slidesToShow: 4,
+						slidesToScroll: 2,
+					},
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						centerPadding: "1rem",
+					},
+				},
+			],
 		};
 	} else {
 		settings = {
@@ -26,6 +43,23 @@ function SkillSlider({ loading, technologies }) {
 			slidesToShow: technologies.length,
 			slidesToScroll: 2,
 			centerPadding: "2rem",
+			responsive: [
+				{
+					breakpoint: 1080,
+					settings: {
+						slidesToShow: 4,
+						slidesToScroll: 2,
+					},
+				},
+				{
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2,
+						centerPadding: "1rem",
+					},
+				},
+			],
 		};
 	}
 
@@ -33,7 +67,7 @@ function SkillSlider({ loading, technologies }) {
 		return null;
 	} else {
 		return (
-			<div className="sectionPadding sectionPadding-bo">
+			<div className="sectionPadding sectionPadding-bo skillSilder">
 				<SlickSlider {...settings}>
 					{technologies.map((technology) => (
 						<SliderItem key={technology.id} technology={technology} />

@@ -24,3 +24,37 @@
 		}
 	}
 }
+
+@include screen-md {
+	.timeLineContainer {
+		.timeline-card {
+			grid-template-columns: 1fr 2fr;
+			margin-bottom: 2rem;
+
+			&:last-child {
+				margin-bottom: unset;
+			}
+
+			.timeline-card-logo {
+				display: none;
+				img {
+					@include boxShadow;
+				}
+			}
+		}
+	}
+}
+
+@include screen-sm {
+	.timeLineContainer {
+		.timeline-card {
+			grid-template-columns: 1fr;
+			grid-gap: 0.75rem;
+			margin-bottom: 1.75rem;
+
+			.timeline-card-logo {
+				display: none;
+			}
+		}
+	}
+}

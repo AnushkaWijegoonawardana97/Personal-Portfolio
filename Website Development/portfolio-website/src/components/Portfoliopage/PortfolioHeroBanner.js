@@ -3,7 +3,7 @@ import React from "react";
 function PortfolioHeroBanner() {
 	return (
 		<div className="sectionPadding row">
-			<div className="col-md-8">
+			<div className="col-lg-8 col-md-10">
 				<div className="primaryHeading">SHOWCASE</div>
 
 				<p>

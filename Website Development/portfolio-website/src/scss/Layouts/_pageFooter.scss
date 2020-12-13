@@ -6,3 +6,17 @@
 		}
 	}
 }
+
+@include screen-md {
+	.pageFooter {
+		align-items: center;
+		flex-direction: column;
+	}
+}
+
+@include screen-sm {
+	.pageFooter {
+		align-items: center;
+		flex-direction: column;
+	}
+}

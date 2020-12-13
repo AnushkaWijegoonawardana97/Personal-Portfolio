@@ -16,3 +16,14 @@
 }
 
 // Responsive Settings
+@include screen-md {
+	.textImgBanner {
+		min-height: 30vh;
+	}
+}
+
+@include screen-sm {
+	.textImgBanner {
+		min-height: 40vh;
+	}
+}

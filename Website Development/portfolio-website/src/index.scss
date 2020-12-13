@@ -24,3 +24,18 @@ body {
 a {
 	text-decoration: unset;
 }
+
+@include screen-sm {
+	.container {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.skillSilder {
+		overflow: hidden !important;
+	}
+
+	.slick-arrow {
+		display: none !important;
+	}
+}

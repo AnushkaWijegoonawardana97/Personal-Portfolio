@@ -116,3 +116,114 @@
 		margin-bottom: 2.5rem;
 	}
 }
+
+@include screen-md {
+	.sectionPadding {
+		padding: 5rem 0rem;
+
+		&-x {
+			padding: 0rem 5rem;
+		}
+
+		&-to {
+			padding-bottom: 0;
+			padding-top: 5rem;
+		}
+
+		&-bo {
+			padding-bottom: 5rem;
+		}
+	}
+
+	.sectionInnerPadding {
+		padding: 1.5rem;
+
+		&-y {
+			padding: 1.5rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 1.5rem;
+		}
+
+		&-ro {
+			padding-right: 1.5rem;
+		}
+	}
+
+	.subSectionInnerPadding {
+		padding: 1rem;
+
+		&-y {
+			padding: 1rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 1rem;
+		}
+
+		&-ro {
+			padding: unset;
+			padding-right: 1rem;
+		}
+	}
+
+	.subSectionSpacing {
+		margin-bottom: 2rem;
+	}
+}
+
+@include screen-sm {
+	.sectionPadding {
+		padding: 3rem 0rem;
+
+		&-x {
+			padding: 0rem 3rem;
+		}
+
+		&-to {
+			padding-bottom: 0;
+			padding-top: 3rem;
+		}
+
+		&-bo {
+			padding-bottom: 3rem;
+		}
+	}
+
+	.sectionInnerPadding {
+		padding: 1.25rem;
+
+		&-y {
+			padding: 1.25rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 1.25rem;
+		}
+
+		&-ro {
+			padding-right: 1.25rem;
+		}
+	}
+
+	.subSectionInnerPadding {
+		padding: 0.75rem;
+
+		&-y {
+			padding: 0.75rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 0.75rem;
+		}
+
+		&-ro {
+			padding-right: 0.75rem;
+		}
+	}
+
+	.subSectionSpacing {
+		margin-bottom: 1.5rem;
+	}
+}

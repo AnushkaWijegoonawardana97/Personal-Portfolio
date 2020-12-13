@@ -4,16 +4,16 @@
 
 // Responsive Break Points
 @mixin screen-xlg {
-	@media (min-width: 1288px) and (max-width: 1444px) {
+	@media (min-width: 1081px) and (max-width: 1444px) {
 		@content;
 	}
 }
 
-@mixin screen-lg {
-	@media (min-width: 1081px) and (max-width: 1287.98px) {
-		@content;
-	}
-}
+// @mixin screen-lg {
+// 	@media (min-width: 1081px) and (max-width: 1287.98px) {
+// 		@content;
+// 	}
+// }
 
 @mixin screen-md {
 	@media (min-width: 768px) and (max-width: 1080.98px) {
