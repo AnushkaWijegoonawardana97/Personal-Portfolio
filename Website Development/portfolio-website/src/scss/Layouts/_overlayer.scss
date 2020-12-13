@@ -46,11 +46,10 @@
 }
 
 // Responsive Settings
-@include screen-lg {
+@include screen-xlg {
 	.navigationOverlayer {
 		.navigationOverlayerLinks {
-			width: 50%;
-			margin: auto;
+			height: 100%;
 
 			.link-item {
 				font-size: 3rem;
