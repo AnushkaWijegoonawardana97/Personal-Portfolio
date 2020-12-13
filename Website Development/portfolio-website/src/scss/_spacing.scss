@@ -62,58 +62,57 @@
 }
 
 // Responsive Settings
-@include screen-lg {
+@include screen-xlg {
 	.sectionPadding {
-		padding: 6rem 0rem;
+		padding: 6.25rem 0rem;
 
 		&-x {
-			padding: 0rem 6rem;
+			padding: 0rem 6.25rem;
 		}
 
 		&-to {
-			padding-top: 6rem;
+			padding-top: 6.25rem;
 		}
 
 		&-bo {
-			padding-bottom: 6rem;
+			padding-bottom: 6.25rem;
 		}
 	}
 
 	.sectionInnerPadding {
-		padding: 1.5rem;
+		padding: 1.75rem;
 
 		&-y {
-			padding: 1.5rem 0rem;
+			padding: 1.75rem 0rem;
 		}
 
 		&-x {
-			padding: 0rem 1.5rem;
+			padding: 0rem 1.75rem;
 		}
 
 		&-ro {
-			padding: unset;
-			padding-right: 1.5rem;
+			padding-right: 1.75rem;
 		}
 	}
 
 	.subSectionInnerPadding {
-		padding: 1rem;
+		padding: 1.25rem;
 
 		&-y {
-			padding: 1rem 0rem;
+			padding: 1.25rem 0rem;
 		}
 
 		&-x {
-			padding: 0rem 1rem;
+			padding: 0rem 1.25rem;
 		}
 
 		&-ro {
 			padding: unset;
-			padding-right: 1rem;
+			padding-right: 1.25rem;
 		}
 	}
 
 	.subSectionSpacing {
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
 	}
 }
