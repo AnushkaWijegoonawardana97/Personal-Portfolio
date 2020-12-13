@@ -172,3 +172,58 @@
 		margin-bottom: 2rem;
 	}
 }
+
+@include screen-sm {
+	.sectionPadding {
+		padding: 4rem 0rem;
+
+		&-x {
+			padding: 0rem 4rem;
+		}
+
+		&-to {
+			padding-bottom: 0;
+			padding-top: 4rem;
+		}
+
+		&-bo {
+			padding-bottom: 4rem;
+		}
+	}
+
+	.sectionInnerPadding {
+		padding: 1.25rem;
+
+		&-y {
+			padding: 1.25rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 1.25rem;
+		}
+
+		&-ro {
+			padding-right: 1.25rem;
+		}
+	}
+
+	.subSectionInnerPadding {
+		padding: 0.75rem;
+
+		&-y {
+			padding: 0.75rem 0rem;
+		}
+
+		&-x {
+			padding: 0rem 0.75rem;
+		}
+
+		&-ro {
+			padding-right: 0.75rem;
+		}
+	}
+
+	.subSectionSpacing {
+		margin-bottom: 1.5rem;
+	}
+}
