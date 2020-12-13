@@ -67,3 +67,25 @@
 		height: 2.5rem;
 	}
 }
+
+@include screen-md {
+	.navigationOverlayer {
+		.navigationOverlayerLinks {
+			height: 100%;
+
+			.link-item {
+				font-size: 2.5rem;
+				line-height: 3rem;
+				margin-bottom: 1.25rem;
+			}
+		}
+	}
+
+	.menuIcon {
+		font-size: 2.5rem;
+	}
+
+	.logoImg {
+		height: 2.5rem;
+	}
+}

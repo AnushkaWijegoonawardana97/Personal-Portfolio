@@ -15,3 +15,8 @@
 }
 
 // Responsive Settings
+@include screen-md {
+	.imageBanner {
+		min-height: 30vh;
+	}
+}
