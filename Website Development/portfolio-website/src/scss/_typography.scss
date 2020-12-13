@@ -64,22 +64,27 @@ p {
 }
 
 // Responsive Settings
-@include screen-lg {
+@include screen-xlg {
+	body,
 	p {
 		font-size: 1.25rem;
 		line-height: 1.75rem;
 	}
 
-	.smallerText,
+	.smallerText {
+		font-size: 0.8rem;
+		line-height: 1.3rem;
+	}
+
 	.smallerTextLight {
 		font-size: 0.8rem;
 		line-height: 1.3rem;
 	}
 
 	.bannerText {
-		font-size: 1.75rem;
-		line-height: 2.25rem;
-		margin-bottom: 2.25rem;
+		font-size: 1.5rem;
+		line-height: 2rem;
+		margin-bottom: 2rem;
 	}
 
 	// Primary Heading
@@ -90,8 +95,8 @@ p {
 	}
 
 	.primarySubHeading {
-		font-size: 1.25rem;
-		line-height: 1.75rem;
+		font-size: 1.5rem;
+		line-height: 2rem;
 	}
 
 	.secondarHeading {
@@ -103,6 +108,6 @@ p {
 	.fadingText {
 		font-size: 2rem;
 		line-height: 2.5rem;
-		margin-bottom: -1rem;
+		margin-bottom: -1.25rem;
 	}
 }
