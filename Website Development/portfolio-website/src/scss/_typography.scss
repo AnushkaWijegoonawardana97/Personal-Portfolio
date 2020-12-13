@@ -120,53 +120,42 @@ p {
 	}
 
 	.smallerText {
-		font-size: 1rem;
-		line-height: 1.5rem;
+		font-size: 0.8rem;
+		line-height: 1.3rem;
 	}
 
 	.smallerTextLight {
-		font-family: "Poppins", sans-serif;
-		font-size: 1rem;
-		line-height: 1.5rem;
-		font-weight: 400;
-		margin: unset;
+		font-size: 0.8rem;
+		line-height: 1.3rem;
 	}
 
 	.bannerText {
-		font-family: "Poppins", sans-serif;
-		font-size: 2rem;
-		line-height: 2.5rem;
-		font-weight: 400;
-		margin-bottom: 2.5rem;
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+		margin-bottom: 1.5rem;
 	}
 
 	// Primary Heading
 	.primaryHeading {
-		font-family: "Fjalla One", sans-serif;
-		font-size: 3.5rem;
-		line-height: 4rem;
-		margin-bottom: 2rem;
+		font-size: 2.5rem;
+		line-height: 3rem;
+		margin-bottom: 1.25rem;
 	}
 
 	.primarySubHeading {
-		font-family: "Fjalla One", sans-serif;
-		font-size: 1.5rem;
-		line-height: 2rem;
+		font-size: 1.3rem;
+		line-height: 1.8rem;
 	}
 
 	.secondarHeading {
-		font-family: "Fjalla One", sans-serif;
-		font-size: 2.5rem;
-		line-height: 3rem;
+		font-size: 1.5rem;
+		line-height: 2rem;
 		margin-bottom: 2rem;
 	}
 
 	.fadingText {
-		font-family: "Poppins", sans-serif;
-		font-size: 2.5rem;
-		line-height: 3rem;
-		font-weight: 800;
-		color: $secondaryColor;
-		margin-bottom: -1.5rem;
+		font-size: 1.5rem;
+		line-height: 2rem;
+		margin-bottom: -1rem;
 	}
 }

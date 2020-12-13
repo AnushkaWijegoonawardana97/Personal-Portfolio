@@ -16,6 +16,15 @@ function SkillSlider({ loading, technologies }) {
 			slidesToShow: 6,
 			slidesToScroll: 2,
 			centerPadding: "2rem",
+			responsive: [
+				{
+					breakpoint: 1080,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 2,
+					},
+				},
+			],
 		};
 	} else {
 		settings = {
@@ -26,6 +35,15 @@ function SkillSlider({ loading, technologies }) {
 			slidesToShow: technologies.length,
 			slidesToScroll: 2,
 			centerPadding: "2rem",
+			responsive: [
+				{
+					breakpoint: 1080,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 2,
+					},
+				},
+			],
 		};
 	}
 

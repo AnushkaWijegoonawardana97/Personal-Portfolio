@@ -26,3 +26,20 @@
 		}
 	}
 }
+
+@include screen-md {
+	.serviceGrid {
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 2rem;
+
+		.serviceCard {
+			.primarySubHeading {
+				margin-bottom: 2rem;
+			}
+
+			.ContactLinks {
+				color: $primaryColor;
+			}
+		}
+	}
+}

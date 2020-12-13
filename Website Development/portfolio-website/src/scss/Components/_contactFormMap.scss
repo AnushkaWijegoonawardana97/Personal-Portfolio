@@ -52,3 +52,44 @@
 		}
 	}
 }
+
+@include screen-md {
+	.contactFormMap {
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 2rem;
+
+		.contactMap {
+			iframe {
+				min-height: 50vh;
+				height: 100%;
+				width: 100%;
+				border: unset;
+			}
+		}
+
+		.contactForm {
+			.form-group {
+				margin-bottom: 2rem;
+
+				.form-control {
+					border: 2px solid $primaryColor;
+					border-radius: unset;
+					font-family: "Poppins", sans-serif;
+					font-size: 1.25rem;
+					line-height: 1.75rem;
+					font-weight: 400;
+					padding: 0.5rem 1rem;
+					color: $primaryColor;
+
+					&::placeholder {
+						color: $primaryColor;
+					}
+
+					&:focus {
+						box-shadow: unset;
+					}
+				}
+			}
+		}
+	}
+}
