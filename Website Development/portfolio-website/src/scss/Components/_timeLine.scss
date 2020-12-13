@@ -16,3 +16,11 @@
 		}
 	}
 }
+
+@include screen-xlg {
+	.timeLineContainer {
+		.timeline-card {
+			margin-bottom: 2.5rem;
+		}
+	}
+}
