@@ -37,3 +37,32 @@
 		}
 	}
 }
+
+// Responsive Settings
+@include screen-lg {
+	.contactFormMap {
+		grid-template-columns: repeat(1, 1fr);
+		grid-gap: 6rem;
+
+		.contactMap {
+			order: 2;
+
+			iframe {
+				min-height: 30vh;
+			}
+		}
+
+		.contactForm {
+			.form-group {
+				margin-bottom: 2rem;
+
+				.form-control {
+					border: 1px solid $primaryColor;
+					font-size: 1.2rem;
+					line-height: 1.7rem;
+					padding: 0.4rem 1rem;
+				}
+			}
+		}
+	}
+}

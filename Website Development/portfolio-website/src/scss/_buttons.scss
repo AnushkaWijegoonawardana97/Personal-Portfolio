@@ -32,3 +32,17 @@
 	color: $whiteColor;
 	text-transform: uppercase;
 }
+
+// Responsive Settings
+@include screen-lg {
+	.theme-btn {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+
+	.btn-form {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+		padding: 0.5rem 1.75rem;
+	}
+}

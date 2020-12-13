@@ -13,3 +13,16 @@
 		}
 	}
 }
+
+// Responsive Settings
+@include screen-lg {
+	.serviceGrid {
+		grid-gap: 1rem;
+
+		.serviceCard {
+			.primarySubHeading {
+				margin-bottom: 1.5rem;
+			}
+		}
+	}
+}

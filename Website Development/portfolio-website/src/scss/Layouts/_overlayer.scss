@@ -9,6 +9,10 @@
 	overflow-y: hidden;
 	transition: 1s;
 
+	.menuIcon {
+		color: $whiteColor !important;
+	}
+
 	.navigationOverlayerLinks {
 		height: 100%;
 
@@ -25,5 +29,42 @@
 				color: $secondaryColor !important;
 			}
 		}
+	}
+}
+
+.overlayerNavHeader {
+	background-color: rgba($whiteColor, 0.9);
+}
+
+.menuIcon {
+	color: $primaryColor;
+	font-size: 3rem;
+}
+
+.logoImg {
+	height: 3rem;
+}
+
+// Responsive Settings
+@include screen-lg {
+	.navigationOverlayer {
+		.navigationOverlayerLinks {
+			width: 50%;
+			margin: auto;
+
+			.link-item {
+				font-size: 3rem;
+				line-height: 3.5rem;
+				margin-bottom: 1.5rem;
+			}
+		}
+	}
+
+	.menuIcon {
+		font-size: 2.5rem;
+	}
+
+	.logoImg {
+		height: 2.5rem;
 	}
 }

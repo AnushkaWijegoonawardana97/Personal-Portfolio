@@ -14,3 +14,10 @@
 	color: $whiteColor;
 	@include boxShadow;
 }
+
+// Responsive Settings
+@include screen-lg {
+	.textImgBanner {
+		min-height: 30vh;
+	}
+}

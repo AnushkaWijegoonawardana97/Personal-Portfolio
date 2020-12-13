@@ -17,6 +17,14 @@ p {
 	margin: unset;
 }
 
+.smallerTextLight {
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-weight: 400;
+	margin: unset;
+}
+
 .bannerText {
 	font-family: "Poppins", sans-serif;
 	font-size: 2rem;
@@ -53,4 +61,48 @@ p {
 	font-weight: 800;
 	color: $secondaryColor;
 	margin-bottom: -1.5rem;
+}
+
+// Responsive Settings
+@include screen-lg {
+	p {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+
+	.smallerText,
+	.smallerTextLight {
+		font-size: 0.8rem;
+		line-height: 1.3rem;
+	}
+
+	.bannerText {
+		font-size: 1.75rem;
+		line-height: 2.25rem;
+		margin-bottom: 2.25rem;
+	}
+
+	// Primary Heading
+	.primaryHeading {
+		font-size: 3rem;
+		line-height: 3.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.primarySubHeading {
+		font-size: 1.25rem;
+		line-height: 1.75rem;
+	}
+
+	.secondarHeading {
+		font-size: 2rem;
+		line-height: 2.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.fadingText {
+		font-size: 2rem;
+		line-height: 2.5rem;
+		margin-bottom: -1rem;
+	}
 }

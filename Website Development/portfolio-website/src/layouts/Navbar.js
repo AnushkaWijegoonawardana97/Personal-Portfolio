@@ -4,28 +4,23 @@ import { Link } from "react-router-dom";
 import DarkLogo from "../assets/DarkHeaderLogo.png";
 
 function Navbar() {
-	const menuIcon = {
-		fontSize: "3.75rem",
-		color: "#161619",
-	};
-
-	const openOverlayer = () => {
-		// e.preventDefault();
+	const openOverlayer = (e) => {
+		e.preventDefault();
 		document.getElementById("navigationOverlayer").style.height = "100%";
 	};
 
 	return (
-		<div className="sectionInnerPadding d-flex align-items-center justify-content-between overlayerNavHeader fixed-top">
+		<div className="subSectionInnerPadding d-flex align-items-center justify-content-between overlayerNavHeader fixed-top">
 			<Link to="/">
 				<img
 					src={DarkLogo}
 					alt="Anushka Wijegoonawardana Logo"
-					className="img-fluid"
+					className="img-fluid logoImg"
 				/>
 			</Link>
 
-			<Link onClick={openOverlayer}>
-				<i className="fas fa-bars" style={menuIcon}></i>
+			<Link to="/" onClick={openOverlayer}>
+				<i className="fas fa-bars menuIcon"></i>
 			</Link>
 		</div>
 	);
