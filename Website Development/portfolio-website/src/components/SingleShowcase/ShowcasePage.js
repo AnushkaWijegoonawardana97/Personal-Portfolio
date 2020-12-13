@@ -47,7 +47,9 @@ function ShowcasePage() {
 				{/* Portfolio Inside Header */}
 				<div className="sectionPadding row">
 					<div className="col-lg-8 col-md-10">
-						<div className="primaryHeading">{portfolio.PortfolioName}</div>
+						<div className="primaryHeading text-uppercase">
+							{portfolio.PortfolioName}
+						</div>
 
 						<p className="subSectionSpacing">{portfolio.PortfolioSummary}</p>
 

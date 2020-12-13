@@ -20,7 +20,7 @@ function SkillSlider({ loading, technologies }) {
 				{
 					breakpoint: 1080,
 					settings: {
-						slidesToShow: 3,
+						slidesToShow: 4,
 						slidesToScroll: 2,
 					},
 				},
@@ -39,7 +39,7 @@ function SkillSlider({ loading, technologies }) {
 				{
 					breakpoint: 1080,
 					settings: {
-						slidesToShow: 3,
+						slidesToShow: 4,
 						slidesToScroll: 2,
 					},
 				},

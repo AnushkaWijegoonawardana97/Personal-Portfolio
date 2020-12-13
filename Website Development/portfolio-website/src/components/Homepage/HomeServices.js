@@ -4,7 +4,7 @@ function HomeServices() {
 	return (
 		<div className="sectionPadding">
 			<div className="subSectionSpacing row">
-				<div className="col-md-8">
+				<div className="col-lg-8 col-md-10">
 					<div className="primaryHeading">THE THINGS I AM ABLE TO DO</div>
 
 					<p>

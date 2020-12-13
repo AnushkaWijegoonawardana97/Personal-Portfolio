@@ -28,16 +28,15 @@
 @include screen-md {
 	.timeLineContainer {
 		.timeline-card {
-			display: grid !important;
-			grid-template-columns: 1fr;
-			grid-gap: 2rem;
-			margin-bottom: 3rem;
+			grid-template-columns: 1fr 2fr;
+			margin-bottom: 2rem;
 
 			&:last-child {
 				margin-bottom: unset;
 			}
 
 			.timeline-card-logo {
+				display: none;
 				img {
 					@include boxShadow;
 				}
