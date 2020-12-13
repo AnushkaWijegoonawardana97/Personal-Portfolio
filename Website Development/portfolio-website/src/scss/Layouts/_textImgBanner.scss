@@ -21,3 +21,9 @@
 		min-height: 30vh;
 	}
 }
+
+@include screen-sm {
+	.textImgBanner {
+		min-height: 40vh;
+	}
+}

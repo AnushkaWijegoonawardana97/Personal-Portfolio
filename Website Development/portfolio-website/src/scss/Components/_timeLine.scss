@@ -44,3 +44,17 @@
 		}
 	}
 }
+
+@include screen-sm {
+	.timeLineContainer {
+		.timeline-card {
+			grid-template-columns: 1fr;
+			grid-gap: 0.75rem;
+			margin-bottom: 1.75rem;
+
+			.timeline-card-logo {
+				display: none;
+			}
+		}
+	}
+}

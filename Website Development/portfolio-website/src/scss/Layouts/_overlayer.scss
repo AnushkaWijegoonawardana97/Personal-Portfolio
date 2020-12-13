@@ -89,3 +89,26 @@
 		height: 2.5rem;
 	}
 }
+
+@include screen-sm {
+	.navigationOverlayer {
+		.navigationOverlayerLinks {
+			padding-left: 3rem;
+			height: 100%;
+
+			.link-item {
+				font-size: 2rem;
+				line-height: 2.5rem;
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
+	.menuIcon {
+		font-size: 1.5rem;
+	}
+
+	.logoImg {
+		height: 1.5rem;
+	}
+}
