@@ -109,6 +109,7 @@ function ShowcasePage() {
 					<SkillSlider
 						loading={loading}
 						technologies={portfolio.technologies}
+						slideRowCount={1}
 					/>
 				) : null}
 			</Fragment>

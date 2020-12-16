@@ -5,6 +5,10 @@
 		grid-gap: 2rem;
 		margin-bottom: 3rem;
 
+		a {
+			color: $primaryColor;
+		}
+
 		&:last-child {
 			margin-bottom: unset;
 		}
