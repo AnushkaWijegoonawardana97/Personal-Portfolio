@@ -8,6 +8,7 @@ function TimelineItem({
 		ExperienceType,
 		Description,
 		OrganizationLogo,
+		OrganizationURL,
 	},
 }) {
 	return (
@@ -19,14 +20,24 @@ function TimelineItem({
 			</div>
 
 			<div className="timeline-card-details">
-				<p className="smallerText">{OrganizationName}</p>
+				<a
+					className="smallerText"
+					href={OrganizationURL}
+					target="_blank"
+					rel="noreferrer"
+				>
+					{OrganizationName}
+				</a>
+				{/* <p className="smallerText">{OrganizationName}</p> */}
 
 				<div className="secondarHeading">{ExperienceName}</div>
 
 				<p>{Description}</p>
 			</div>
 			<div className="timeline-card-logo">
-				<img src={OrganizationLogo} alt="" className="img-fluid" />
+				<a href={OrganizationURL} target="_blank" rel="noreferrer">
+					<img src={OrganizationLogo} alt="" className="img-fluid" />
+				</a>
 			</div>
 		</div>
 	);

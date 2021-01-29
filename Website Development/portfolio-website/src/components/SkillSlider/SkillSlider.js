@@ -2,20 +2,21 @@ import React from "react";
 import SlickSlider from "react-slick";
 import SliderItem from "./SliderItem";
 
-function SkillSlider({ loading, technologies }) {
+function SkillSlider({ loading, technologies, slideRowCount }) {
 	// console.log(technologies.length);
 
 	let settings;
 
 	if (technologies.length >= 6) {
 		settings = {
-			dots: false,
+			dots: true,
 			infinite: true,
 			autoplay: true,
 			speed: 1000,
 			slidesToShow: 6,
 			slidesToScroll: 2,
 			centerPadding: "2rem",
+			slidesPerRow: slideRowCount,
 			responsive: [
 				{
 					breakpoint: 1080,
@@ -36,13 +37,14 @@ function SkillSlider({ loading, technologies }) {
 		};
 	} else {
 		settings = {
-			dots: false,
+			dots: true,
 			infinite: true,
 			autoplay: true,
 			speed: 1000,
 			slidesToShow: technologies.length,
 			slidesToScroll: 2,
 			centerPadding: "2rem",
+			slidesPerRow: slideRowCount,
 			responsive: [
 				{
 					breakpoint: 1080,

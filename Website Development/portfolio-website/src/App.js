@@ -25,6 +25,7 @@ import PortfolioHeader from "./components/Portfolio/PortfolioHeader";
 import PortfolioGrid from "./components/Portfolio/PortfolioGrid";
 import ShowcaseGrid from "./components/Showcase/ShowcaseGrid";
 import ShowcasePage from "./components/SingleShowcase/ShowcasePage";
+import PageNotFound from "./layouts/PageNotFound";
 
 function App() {
 	const [timelineitems, settimelineitems] = useState([]);
@@ -37,7 +38,7 @@ function App() {
 		const fetchTimelineItems = async () => {
 			setloading(true);
 			const response = await axios(
-				"https://anushkaportfoliodb.herokuapp.com/Experiences"
+				"https://anushkaportfoliodb.herokuapp.com/Experiences?_sort=Order:ASC"
 			);
 
 			// console.log(response.data);
@@ -79,6 +80,8 @@ function App() {
 
 		fetchPortfolios();
 	}, []);
+
+	//
 
 	return (
 		<Router>
@@ -126,7 +129,11 @@ function App() {
 									<Timeline loading={loading} timelineitems={timelineitems} />
 								</section>
 
-								<SkillSlider loading={loading} technologies={technology} />
+								<SkillSlider
+									loading={loading}
+									technologies={technology}
+									slideRowCount={2}
+								/>
 
 								<PortfolioBanner />
 							</Fragment>
@@ -173,6 +180,8 @@ function App() {
 							</Fragment>
 						)}
 					/>
+
+					<Route component={PageNotFound} />
 				</Switch>
 
 				<Pagefooter />
