@@ -1,1 +1,9 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+a {
+	text-decoration: none;
+}
+
+.BodyLayout {
+	min-height: 90vh !important;
+}
