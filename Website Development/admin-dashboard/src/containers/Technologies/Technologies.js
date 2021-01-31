@@ -126,9 +126,9 @@ export class Technologies extends Component {
 										/>
 									</div>
 
-									<button type="submit" className="btn btn-primary text-center">
-										Add Technology
-									</button>
+										<button type="submit" className="btn btn-primary text-center">
+											Add Technology
+										</button>
 								</form>
 							</div>
 						</div>
