@@ -7,6 +7,8 @@ export class Categories extends Component {
 		categoryName: "",
 		categories: [],
 		loading: true,
+		editState: false,
+		editId: null,
 	};
 
 	fetchCategories() {
@@ -42,11 +44,46 @@ export class Categories extends Component {
 		});
 	};
 
+	submiteditCategoryHandler = (e) => {
+		e.preventDefault();
+		// console.log("Edit This");
+
+		const category = {
+			categoryName: this.state.categoryName,
+		};
+
+		axios
+			.put(`/categories/${this.state.editId}.json`, category)
+			.then((response) => {
+				// console.log(response);
+				this.setState({ categoryName: "", editState: false, editId: null });
+				this.fetchCategories();
+			});
+	};
+
+	editButtonClickHandler = (id) => {
+		// console.log("Need To Edit This");
+		this.setState({ editState: true });
+
+		axios.get(`/categories/${id}.json`).then((response) => {
+			this.setState({ categoryName: response.data.categoryName, editId: id });
+		});
+	};
+
+	deleteCategoryHandler = (id) => {
+		// console.log(`Delete this ${id}`);
+
+		axios.delete(`/categories/${id}.json`).then((response) => {
+			// console.log(response);
+			this.fetchCategories();
+		});
+	};
+
 	render() {
 		let categoriesDom = (
-			<div cl="text-center">
-				<div cl="spinner-border" role="status">
-					<span cl="visually-hidden">Loading...</span>
+			<div className="text-center">
+				<div className="spinner-border" role="status">
+					<span className="visually-hidden">Loading...</span>
 				</div>
 			</div>
 		);
@@ -62,16 +99,44 @@ export class Categories extends Component {
 							<span className="fw-bold">{category.categoryName}</span>
 
 							<div>
-								<span className="delete-Btn badge bg-danger rounded-pill me-3">
+								<span
+									className="delete-Btn badge bg-danger rounded-pill me-3"
+									onClick={() => this.deleteCategoryHandler(category.id)}
+								>
 									Delete
 								</span>
-								<span className="delete-Btn badge bg-warning rounded-pill">
+								<span
+									className="delete-Btn badge bg-warning rounded-pill"
+									onClick={() => this.editButtonClickHandler(category.id)}
+								>
 									Edit
 								</span>
 							</div>
 						</li>
 					))}
 				</ul>
+			);
+		}
+
+		let ButtonDom = (
+			<button
+				type="submit"
+				className="btn btn-primary text-center"
+				onClick={(e) => this.submitCategoryHandler(e)}
+			>
+				Add Category
+			</button>
+		);
+
+		if (this.state.editState) {
+			ButtonDom = (
+				<button
+					type="submit"
+					className="btn btn-warning text-center"
+					onClick={(e) => this.submiteditCategoryHandler(e)}
+				>
+					Edit Category
+				</button>
 			);
 		}
 
@@ -83,7 +148,7 @@ export class Categories extends Component {
 					<div className="col-md-4 ">
 						<div className="card">
 							<div className="card-body">
-								<form onSubmit={(e) => this.submitCategoryHandler(e)}>
+								<form>
 									<div className="mb-3">
 										<label htmlFor="category-name" className="form-label">
 											Category Name
@@ -99,9 +164,7 @@ export class Categories extends Component {
 										/>
 									</div>
 
-									<button type="submit" className="btn btn-primary text-center">
-										Add Category
-									</button>
+									{ButtonDom}
 								</form>
 							</div>
 						</div>

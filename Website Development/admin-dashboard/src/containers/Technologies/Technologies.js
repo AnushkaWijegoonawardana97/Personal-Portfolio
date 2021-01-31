@@ -65,7 +65,7 @@ export class Technologies extends Component {
 							<div>
 								<img
 									src={technology.technologyIcon}
-									class="img-thumbnail rounded img-fluid me-5"
+									className="img-thumbnail rounded img-fluid me-5"
 									alt=""
 									width="50"
 								/>
@@ -126,9 +126,9 @@ export class Technologies extends Component {
 										/>
 									</div>
 
-										<button type="submit" className="btn btn-primary text-center">
-											Add Technology
-										</button>
+									<button type="submit" className="btn btn-primary text-center">
+										Add Technology
+									</button>
 								</form>
 							</div>
 						</div>
