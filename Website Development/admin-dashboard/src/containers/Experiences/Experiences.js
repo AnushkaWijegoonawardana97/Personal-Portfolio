@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import LayoutHeader from "../../components/UI/LayoutHeader/LayoutHeader";
+import axios from "../../axios";
 
 export class Experiences extends Component {
 	state = {
@@ -13,6 +14,37 @@ export class Experiences extends Component {
 		order: "",
 	};
 
+	submitExperienceHandler = (e) => {
+		e.preventDefault();
+		console.log("Form Submitted");
+
+		const experience = {
+			experienceName: this.state.experienceName,
+			organizationName: this.state.organizationName,
+			organizationURL: this.state.organizationURL,
+			organizationLogoUrl: this.state.organizationLogoUrl,
+			timeline: this.state.timeline,
+			description: this.state.description,
+			experienceType: this.state.experienceType,
+			order: this.state.order,
+		};
+
+		axios.post("/experiences.json", experience).then((response) => {
+			console.log(response);
+
+			this.setState({
+				experienceName: "",
+				organizationName: "",
+				organizationURL: "",
+				organizationLogoUrl: "https://wijegoonawardana.com/uploads/Experience/",
+				timeline: "",
+				description: "",
+				experienceType: "educational",
+				order: "",
+			});
+		});
+	};
+
 	render() {
 		return (
 			<section className="container-fluid">
@@ -22,7 +54,7 @@ export class Experiences extends Component {
 					<div className="col-md-4">
 						<div className="card">
 							<div className="card-body">
-								<form>
+								<form onSubmit={(e) => this.submitExperienceHandler(e)}>
 									<div className="mb-3">
 										<label htmlFor="experienceName" className="form-label">
 											Experience Name
