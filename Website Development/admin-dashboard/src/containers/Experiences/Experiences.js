@@ -14,6 +14,8 @@ export class Experiences extends Component {
 		order: "",
 		experiences: [],
 		loading: true,
+		editState: false,
+		editId: null,
 	};
 
 	fetchExperiences() {
@@ -65,6 +67,70 @@ export class Experiences extends Component {
 		});
 	};
 
+	submiteditExperienceHandler = (e) => {
+		e.preventDefault();
+		// console.log("this was edited");
+
+		const experience = {
+			experienceName: this.state.experienceName,
+			organizationName: this.state.organizationName,
+			organizationURL: this.state.organizationURL,
+			organizationLogoUrl: this.state.organizationLogoUrl,
+			timeline: this.state.timeline,
+			description: this.state.description,
+			experienceType: this.state.experienceType,
+			order: this.state.order,
+		};
+
+		axios
+			.put(`/experiences/${this.state.editId}.json`, experience)
+			.then((response) => {
+				this.setState({
+					experienceName: "",
+					organizationName: "",
+					organizationURL: "",
+					organizationLogoUrl:
+						"https://wijegoonawardana.com/uploads/Experience/",
+					timeline: "",
+					description: "",
+					experienceType: "educational",
+					order: "",
+					editState: false,
+					editId: null,
+				});
+
+				this.fetchExperiences();
+			});
+	};
+
+	editButtonClickHandler = (id) => {
+		// console.log(`Need to edit ${id}`);
+		this.setState({ editState: true });
+
+		axios.get(`/experiences/${id}.json`).then((response) => {
+			// console.log(response.data);
+			this.setState({
+				experienceName: response.data.experienceName,
+				organizationName: response.data.organizationName,
+				organizationURL: response.data.organizationURL,
+				organizationLogoUrl: response.data.organizationLogoUrl,
+				timeline: response.data.timeline,
+				description: response.data.description,
+				experienceType: response.data.experienceType,
+				order: response.data.order,
+				editId: id,
+			});
+		});
+	};
+
+	deleteExperienceHandler = (id) => {
+		console.log(`Delete This ${id}`);
+
+		axios.delete(`/experiences/${id}.json`).then((response) => {
+			this.fetchExperiences();
+		});
+	};
+
 	render() {
 		let experiencesDom = (
 			<div className="text-center">
@@ -106,16 +172,44 @@ export class Experiences extends Component {
 							</div>
 
 							<div>
-								<span className="delete-Btn badge bg-danger rounded-pill me-3">
+								<span
+									className="delete-Btn badge bg-danger rounded-pill me-3"
+									onClick={() => this.deleteExperienceHandler(experience.id)}
+								>
 									Delete
 								</span>
-								<span className="delete-Btn badge bg-warning rounded-pill">
+								<span
+									className="delete-Btn badge bg-warning rounded-pill"
+									onClick={() => this.editButtonClickHandler(experience.id)}
+								>
 									Edit
 								</span>
 							</div>
 						</li>
 					))}
 				</ul>
+			);
+		}
+
+		let ButtonDom = (
+			<button
+				type="submit"
+				className="btn btn-primary text-center"
+				onClick={(e) => this.submitExperienceHandler(e)}
+			>
+				Add Experience
+			</button>
+		);
+
+		if (this.state.editState) {
+			ButtonDom = (
+				<button
+					type="submit"
+					className="btn btn-warning text-center"
+					onClick={(e) => this.submiteditExperienceHandler(e)}
+				>
+					Edit Experience
+				</button>
 			);
 		}
 
@@ -127,7 +221,7 @@ export class Experiences extends Component {
 					<div className="col-md-4">
 						<div className="card">
 							<div className="card-body">
-								<form onSubmit={(e) => this.submitExperienceHandler(e)}>
+								<form>
 									<div className="mb-3">
 										<label htmlFor="experienceName" className="form-label">
 											Experience Name
@@ -250,9 +344,7 @@ export class Experiences extends Component {
 										/>
 									</div>
 
-									<button type="submit" className="btn btn-primary text-center">
-										Add Experience
-									</button>
+									{ButtonDom}
 								</form>
 							</div>
 						</div>
