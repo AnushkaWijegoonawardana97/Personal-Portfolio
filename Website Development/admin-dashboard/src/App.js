@@ -5,6 +5,7 @@ import BodyLayout from "./components/UI/BodyLayout/BodyLayout";
 import Footer from "./components/UI/Footer/Footer";
 import Categories from "./containers/Categories/Categories";
 import Experiences from "./containers/Experiences/Experiences";
+import Messages from "./containers/Messages/Messages";
 import NavigationBar from "./containers/NavigationBar/NavigationBar";
 import Portfolios from "./containers/Portfolios/Portfolios";
 import Technologies from "./containers/Technologies/Technologies";
@@ -20,6 +21,7 @@ function App() {
 					<Route exact path="/experiences" component={Experiences} />
 					<Route exact path="/portfolios" component={Portfolios} />
 					<Route exact path="/technologies" component={Technologies} />
+					<Route exact path="/messages" component={Messages} />
 				</Switch>
 			</BodyLayout>
 			<Footer />
