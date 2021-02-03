@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 function ContactMapForm() {
+	const [nameText, setNameText] = useState("");
+	const [emailText, setEmailText] = useState("");
+	const [subjectText, setSubjectText] = useState("");
+	const [messageText, setMessageText] = useState("");
+
+	const formSubmitHandler = (e) => {
+		e.preventDefault();
+		console.log("Form Submited");
+
+		const formData = {
+			nameText,
+			emailText,
+			subjectText,
+			messageText,
+			formChecked: false,
+		};
+
+		axios
+			.post(
+				"https://aw-personal-portfolio-default-rtdb.firebaseio.com/contectdetails.json",
+				formData
+			)
+			.then((response) => {
+				// console.log(response);
+
+				setNameText("");
+				setEmailText("");
+				setSubjectText("");
+				setMessageText("");
+			});
+	};
+
 	return (
 		<section className="sectionPadding  contactFormMap">
 			<div className="contactMap">
@@ -22,6 +55,8 @@ function ContactMapForm() {
 							name="name"
 							placeholder="Your Name"
 							className="form-control"
+							value={nameText}
+							onChange={(e) => setNameText(e.target.value)}
 						/>
 					</div>
 					<div className="form-group">
@@ -30,6 +65,8 @@ function ContactMapForm() {
 							name="email"
 							placeholder="Your Email"
 							className="form-control"
+							value={emailText}
+							onChange={(e) => setEmailText(e.target.value)}
 						/>
 					</div>
 					<div className="form-group">
@@ -38,6 +75,8 @@ function ContactMapForm() {
 							name="subject"
 							placeholder="Subject"
 							className="form-control"
+							value={subjectText}
+							onChange={(e) => setSubjectText(e.target.value)}
 						/>
 					</div>
 					<div className="form-group">
@@ -46,10 +85,14 @@ function ContactMapForm() {
 							rows="10"
 							className="form-control"
 							placeholder="Your Message"
+							value={messageText}
+							onChange={(e) => setMessageText(e.target.value)}
 						></textarea>
 					</div>
 
-					<input type="button" value="SUBMIT NOW" className="btn-form" />
+					<button className="btn-form" onClick={(e) => formSubmitHandler(e)}>
+						SUBMIT NOW
+					</button>
 				</form>
 			</div>
 		</section>
