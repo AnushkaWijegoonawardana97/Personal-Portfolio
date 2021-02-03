@@ -18,8 +18,13 @@ function ShowcasePage() {
 		const fetchSinglePortfolio = async () => {
 			setloading(true);
 			const response = await axios(
-				`https://anushkaportfoliodb.herokuapp.com/Portfolios/${portfolioID}`
+				`https://aw-personal-portfolio-default-rtdb.firebaseio.com/portfolios/${portfolioID}.json`
 			);
+
+			// const fetchedPortfolioItems = [];
+			// for (let key in response.data) {
+			// 	fetchedPortfolioItems.push({ ...response.data[key], id: key });
+			// }
 
 			console.log(response.data);
 			setportfolio(response.data);
@@ -32,9 +37,9 @@ function ShowcasePage() {
 	if (portfolioID !== null) {
 		// Portfolio Categories
 		let categoryList;
-		if (portfolio.categories) {
-			categoryList = portfolio.categories.map((category) => (
-				<span key={category.id}> {category.CategoryName} </span>
+		if (portfolio.portfolioCategories) {
+			categoryList = portfolio.portfolioCategories.map((category, index) => (
+				<span key={index}> {category.categoryName} </span>
 			));
 		}
 
@@ -48,13 +53,13 @@ function ShowcasePage() {
 				<div className="sectionPadding row">
 					<div className="col-lg-8 col-md-10">
 						<div className="primaryHeading text-uppercase">
-							{portfolio.PortfolioName}
+							{portfolio.portfolioName}
 						</div>
 
-						<p className="subSectionSpacing">{portfolio.PortfolioSummary}</p>
+						<p className="subSectionSpacing">{portfolio.portfolioSummary}</p>
 
 						<a
-							href={portfolio.LiveLink}
+							href={portfolio.liveLink}
 							target="_blank"
 							rel="noreferrer"
 							className="theme-btn"
@@ -65,8 +70,8 @@ function ShowcasePage() {
 				</div>
 
 				{/* Portfolio INside Gallery */}
-				{portfolio.PortfolioGallery ? (
-					<GalleryImages PortfolioGalleries={portfolio.PortfolioGallery} />
+				{portfolio.portfolioGallery ? (
+					<GalleryImages PortfolioGalleries={portfolio.portfolioGallery} />
 				) : null}
 
 				{/* Service Type, Client Details, Timeline */}
@@ -85,7 +90,7 @@ function ShowcasePage() {
 
 							<div className="primarySubHeading">BRAND / CLIENT</div>
 
-							<div>{portfolio.Client}</div>
+							<div>{portfolio.clientName}</div>
 						</div>
 
 						<div className="serviceCard">
@@ -93,22 +98,22 @@ function ShowcasePage() {
 
 							<div className="primarySubHeading">TIMELINE</div>
 
-							<div>{portfolio.Timeline}</div>
+							<div>{portfolio.timeLine}</div>
 						</div>
 					</div>
 
 					<div className=" row">
 						<div className="col-lg-8 col-md-10">
-							<p>{portfolio.Description}</p>
+							<p>{portfolio.description}</p>
 						</div>
 					</div>
 				</div>
 
 				{/* Languages Slider */}
-				{portfolio.technologies ? (
+				{portfolio.technologiesUsed ? (
 					<SkillSlider
 						loading={loading}
-						technologies={portfolio.technologies}
+						technologies={portfolio.technologiesUsed}
 						slideRowCount={1}
 					/>
 				) : null}

@@ -38,11 +38,15 @@ function App() {
 		const fetchTimelineItems = async () => {
 			setloading(true);
 			const response = await axios(
-				"https://anushkaportfoliodb.herokuapp.com/Experiences?_sort=Order:ASC"
+				"https://aw-personal-portfolio-default-rtdb.firebaseio.com/experiences.json"
 			);
 
-			// console.log(response.data);
-			settimelineitems(response.data);
+			const fetchedTimelineItems = [];
+			for (let key in response.data) {
+				fetchedTimelineItems.push({ ...response.data[key], id: key });
+			}
+
+			settimelineitems(fetchedTimelineItems);
 			setloading(false);
 		};
 
@@ -54,11 +58,15 @@ function App() {
 		const fetchTechSkill = async () => {
 			setloading(true);
 			const response = await axios(
-				"https://anushkaportfoliodb.herokuapp.com/Technologies"
+				"https://aw-personal-portfolio-default-rtdb.firebaseio.com/technologies.json"
 			);
 
-			// console.log(response.data);
-			settechnology(response.data);
+			const fetchedTechnologyItems = [];
+			for (let key in response.data) {
+				fetchedTechnologyItems.push({ ...response.data[key], id: key });
+			}
+
+			settechnology(fetchedTechnologyItems);
 			setloading(false);
 		};
 
@@ -70,11 +78,15 @@ function App() {
 		const fetchPortfolios = async () => {
 			setloading(true);
 			const response = await axios(
-				"https://anushkaportfoliodb.herokuapp.com/Portfolios"
+				"https://aw-personal-portfolio-default-rtdb.firebaseio.com/portfolios.json"
 			);
 
-			// console.log(response.data);
-			setportfolios(response.data);
+			const fetchedPortfolioItems = [];
+			for (let key in response.data) {
+				fetchedPortfolioItems.push({ ...response.data[key], id: key });
+			}
+
+			setportfolios(fetchedPortfolioItems);
 			setloading(false);
 		};
 

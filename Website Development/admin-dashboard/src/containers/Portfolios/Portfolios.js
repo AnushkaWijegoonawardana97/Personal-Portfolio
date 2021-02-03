@@ -326,7 +326,7 @@ export class Portfolios extends Component {
 
 							return (
 								<li
-									className="list-group-item d-flex align-items-center justify-content-between"
+									className="list-group-item d-flex align-items-center justify-content-between mb-3"
 									key={portfolio.id}
 								>
 									<div className="w-75">

@@ -2,23 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function PortfolioGridItem({
-	portfolio: { id, PortfolioName, thumbnailURL, categories, FeaturedPortfolio },
+	portfolio: {
+		id,
+		portfolioName,
+		thumbnailURL,
+		portfolioCategories,
+		featuredPortfolio,
+	},
 }) {
-	const CategoryList = categories.map((category) => (
-		<span key={category.id}> {category.CategoryName} </span>
+	const CategoryList = portfolioCategories.map((category, index) => (
+		<span key={index}> {category.categoryName} </span>
 	));
 
-	if (FeaturedPortfolio) {
+	if (featuredPortfolio) {
 		return (
 			<Link to={`/showcase/${id}`} className="portfolioGridItem">
 				<div className="portfolioImg">
-					<img className="img-fluid" src={thumbnailURL} alt={PortfolioName} />
+					<img className="img-fluid" src={thumbnailURL} alt={portfolioName} />
 				</div>
 
 				<div className="hoverOverlayer">
 					<div className="overLayerText text-center">
 						<div className="portfolioName primarySubHeading text-uppercase">
-							{PortfolioName}
+							{portfolioName}
 						</div>
 						<div className="portfolioCategories smallerTextLight text-capitalize">
 							{CategoryList}
