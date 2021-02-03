@@ -48,6 +48,11 @@ function NavigationBar() {
 								Technologies
 							</NavLink>
 						</li>
+						<li className="nav-item">
+							<NavLink className="nav-link" to="/messages" exact>
+								Messages
+							</NavLink>
+						</li>
 					</ul>
 				</div>
 			</div>

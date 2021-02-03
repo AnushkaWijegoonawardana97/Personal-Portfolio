@@ -13,10 +13,12 @@ function GalleryImages({ PortfolioGalleries }) {
 		centerPadding: "2rem",
 	};
 
+	console.log(PortfolioGalleries);
+
 	return (
 		<div>
 			<SlickSlider {...settings}>
-				{PortfolioGalleries.map((PortfolioGallery, index) => (
+				{PortfolioGalleries.split(",").map((PortfolioGallery, index) => (
 					<img src={PortfolioGallery} alt="" key={index} />
 				))}
 			</SlickSlider>

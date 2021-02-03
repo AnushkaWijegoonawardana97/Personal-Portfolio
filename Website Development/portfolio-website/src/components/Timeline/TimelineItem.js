@@ -2,41 +2,41 @@ import React from "react";
 
 function TimelineItem({
 	timeline: {
-		ExperienceName,
-		OrganizationName,
-		Timeline,
-		ExperienceType,
-		Description,
-		OrganizationLogo,
-		OrganizationURL,
+		experienceName,
+		organizationName,
+		timeline,
+		experienceType,
+		description,
+		organizationLogoUrl,
+		organizationURL,
 	},
 }) {
 	return (
 		<div className="timeline-card">
 			<div className="timeline-card-time serviceCard">
-				<div className="fadingText">{ExperienceType}</div>
+				<div className="fadingText">{experienceType}</div>
 
-				<div className="primarySubHeading">{Timeline}</div>
+				<div className="primarySubHeading">{timeline}</div>
 			</div>
 
 			<div className="timeline-card-details">
 				<a
 					className="smallerText"
-					href={OrganizationURL}
+					href={organizationURL}
 					target="_blank"
 					rel="noreferrer"
 				>
-					{OrganizationName}
+					{organizationName}
 				</a>
-				{/* <p className="smallerText">{OrganizationName}</p> */}
+				{/* <p className="smallerText">{organizationName}</p> */}
 
-				<div className="secondarHeading">{ExperienceName}</div>
+				<div className="secondarHeading">{experienceName}</div>
 
-				<p>{Description}</p>
+				<p>{description}</p>
 			</div>
 			<div className="timeline-card-logo">
-				<a href={OrganizationURL} target="_blank" rel="noreferrer">
-					<img src={OrganizationLogo} alt="" className="img-fluid" />
+				<a href={organizationURL} target="_blank" rel="noreferrer">
+					<img src={organizationLogoUrl} alt="" className="img-fluid" />
 				</a>
 			</div>
 		</div>

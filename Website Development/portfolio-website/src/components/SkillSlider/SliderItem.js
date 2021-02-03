@@ -1,9 +1,13 @@
 import React from "react";
 
-function SliderItem({ technology: { Name, IconURL } }) {
+function SliderItem({ technology: { technologyName, technologyIcon } }) {
 	return (
 		<div className="text-center ">
-			<img className="img-fluid text-center mx-auto" src={IconURL} alt={Name} />
+			<img
+				className="img-fluid text-center mx-auto"
+				src={technologyIcon}
+				alt={technologyName}
+			/>
 		</div>
 	);
 }
