@@ -27,179 +27,222 @@ import ShowcaseGrid from "./components/Showcase/ShowcaseGrid";
 import ShowcasePage from "./components/SingleShowcase/ShowcasePage";
 import PageNotFound from "./layouts/PageNotFound";
 
+import WhatsAppWidget from "react-whatsapp-widget";
+import "../node_modules/react-whatsapp-widget/dist/index.css";
+import { Helmet } from "react-helmet";
+
+import ReactGA from "react-ga";
+import auth from "auth0-js";
+import { createBrowserHistory } from "history";
+
 function App() {
-	const [timelineitems, settimelineitems] = useState([]);
-	const [technology, settechnology] = useState([]);
-	const [portfolios, setportfolios] = useState([]);
-	const [loading, setloading] = useState(false);
+  const [timelineitems, settimelineitems] = useState([]);
+  const [technology, settechnology] = useState([]);
+  const [portfolios, setportfolios] = useState([]);
+  const [loading, setloading] = useState(false);
 
-	// Fetch Timeline Data
-	useEffect(() => {
-		const fetchTimelineItems = async () => {
-			setloading(true);
-			const response = await axios(
-				"https://aw-personal-portfolio-default-rtdb.firebaseio.com/experiences.json"
-			);
+  // Fetch Timeline Data
+  useEffect(() => {
+    const fetchTimelineItems = async () => {
+      setloading(true);
+      const response = await axios(
+        "https://aw-personal-portfolio-default-rtdb.firebaseio.com/experiences.json"
+      );
 
-			const fetchedTimelineItems = [];
-			for (let key in response.data) {
-				fetchedTimelineItems.push({ ...response.data[key], id: key });
-			}
+      const fetchedTimelineItems = [];
+      for (let key in response.data) {
+        fetchedTimelineItems.push({ ...response.data[key], id: key });
+      }
 
-			settimelineitems(fetchedTimelineItems);
-			setloading(false);
-		};
+      settimelineitems(fetchedTimelineItems);
+      setloading(false);
+    };
 
-		fetchTimelineItems();
-	}, []);
+    fetchTimelineItems();
+  }, []);
 
-	// Fetching Technologies & Skills Data
-	useEffect(() => {
-		const fetchTechSkill = async () => {
-			setloading(true);
-			const response = await axios(
-				"https://aw-personal-portfolio-default-rtdb.firebaseio.com/technologies.json"
-			);
+  // Fetching Technologies & Skills Data
+  useEffect(() => {
+    const fetchTechSkill = async () => {
+      setloading(true);
+      const response = await axios(
+        "https://aw-personal-portfolio-default-rtdb.firebaseio.com/technologies.json"
+      );
 
-			const fetchedTechnologyItems = [];
-			for (let key in response.data) {
-				fetchedTechnologyItems.push({ ...response.data[key], id: key });
-			}
+      const fetchedTechnologyItems = [];
+      for (let key in response.data) {
+        fetchedTechnologyItems.push({ ...response.data[key], id: key });
+      }
 
-			settechnology(fetchedTechnologyItems);
-			setloading(false);
-		};
+      settechnology(fetchedTechnologyItems);
+      setloading(false);
+    };
 
-		fetchTechSkill();
-	}, []);
+    fetchTechSkill();
+  }, []);
 
-	// Fetching Portfolios
-	useEffect(() => {
-		const fetchPortfolios = async () => {
-			setloading(true);
-			const response = await axios(
-				"https://aw-personal-portfolio-default-rtdb.firebaseio.com/portfolios.json"
-			);
+  // Fetching Portfolios
+  useEffect(() => {
+    const fetchPortfolios = async () => {
+      setloading(true);
+      const response = await axios(
+        "https://aw-personal-portfolio-default-rtdb.firebaseio.com/portfolios.json"
+      );
 
-			const fetchedPortfolioItems = [];
-			for (let key in response.data) {
-				fetchedPortfolioItems.push({ ...response.data[key], id: key });
-			}
+      const fetchedPortfolioItems = [];
+      for (let key in response.data) {
+        fetchedPortfolioItems.push({ ...response.data[key], id: key });
+      }
 
-			setportfolios(fetchedPortfolioItems);
-			setloading(false);
-		};
+      setportfolios(fetchedPortfolioItems);
+      setloading(false);
+    };
 
-		fetchPortfolios();
-	}, []);
+    fetchPortfolios();
+  }, []);
 
-	//
+  //
 
-	return (
-		<Router>
-			<Overlayer />
-			<Navbar />
+  const history = createBrowserHistory();
 
-			<section className="container sectionPadding sectionPadding-to">
-				<Switch>
-					<Route
-						exact
-						path="/"
-						render={(props) => (
-							<Fragment>
-								<HomeHeroBanner />
+  const trackingID = "G-YCJWTS6KH6";
+  ReactGA.initialize(trackingID);
+  //   ReactGA.set({
+  //     userId: auth.currentUserId(),
+  //   });
 
-								<ImageBanner imgClass={"homepage"} />
+  history.listen((loaction) => {
+    ReactGA.set({ page: loaction.pathname });
+    // eslint-disable-next-line no-restricted-globals
+    ReactGA.pageview(location.pathname);
+  });
 
-								<HomeServices />
+  return (
+    <Router history={history}>
+      <Overlayer />
+      <Navbar />
 
-								<LineSperator />
+      <section className="container sectionPadding sectionPadding-to">
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <Fragment>
+                <Helmet>
+                  <title>Anushka Wijegoonawardana | Homepage</title>
+                </Helmet>
 
-								<section className="sectionPadding">
-									<PortfolioHeader />
+                <HomeHeroBanner />
 
-									<PortfolioGrid loading={loading} portfolios={portfolios} />
-								</section>
+                <ImageBanner imgClass={"homepage"} />
 
-								<ContactBanner />
-							</Fragment>
-						)}
-					/>
+                <HomeServices />
 
-					<Route
-						exact
-						path="/about"
-						render={(props) => (
-							<Fragment>
-								<AboutHeroBanner />
+                <LineSperator />
 
-								<ImageBanner imgClass={"aboutpage"} />
+                <section className="sectionPadding">
+                  <PortfolioHeader />
 
-								<section className="sectionPadding">
-									<TimelineHeader />
+                  <PortfolioGrid loading={loading} portfolios={portfolios} />
+                </section>
 
-									<Timeline loading={loading} timelineitems={timelineitems} />
-								</section>
+                <ContactBanner />
+              </Fragment>
+            )}
+          />
 
-								<SkillSlider
-									loading={loading}
-									technologies={technology}
-									slideRowCount={2}
-								/>
+          <Route
+            exact
+            path="/about"
+            render={(props) => (
+              <Fragment>
+                <Helmet>
+                  <title>Anushka Wijegoonawardana | All About Me</title>
+                </Helmet>
 
-								<PortfolioBanner />
-							</Fragment>
-						)}
-					/>
+                <AboutHeroBanner />
 
-					<Route
-						exact
-						path="/showcase"
-						render={(props) => (
-							<Fragment>
-								<PortfolioHeroBanner />
+                <ImageBanner imgClass={"aboutpage"} />
 
-								<ShowcaseGrid loading={loading} portfolios={portfolios} />
+                <section className="sectionPadding">
+                  <TimelineHeader />
 
-								<ContactBanner />
-							</Fragment>
-						)}
-					/>
+                  <Timeline loading={loading} timelineitems={timelineitems} />
+                </section>
 
-					<Route
-						exact
-						path="/showcase/:id"
-						render={(props) => (
-							<Fragment>
-								<ShowcasePage />
-								<ContactBanner />
-							</Fragment>
-						)}
-					/>
+                <SkillSlider
+                  loading={loading}
+                  technologies={technology}
+                  slideRowCount={2}
+                />
 
-					<Route
-						exact
-						path="/contact"
-						render={(props) => (
-							<Fragment>
-								<ContactHeroBanner />
+                <PortfolioBanner />
+              </Fragment>
+            )}
+          />
 
-								<ContactCards />
+          <Route
+            exact
+            path="/showcase"
+            render={(props) => (
+              <Fragment>
+                <Helmet>
+                  <title>Anushka Wijegoonawardana | The Things I Did</title>
+                </Helmet>
 
-								<ContactMapForm />
+                <PortfolioHeroBanner />
 
-								<PortfolioBanner />
-							</Fragment>
-						)}
-					/>
+                <ShowcaseGrid loading={loading} portfolios={portfolios} />
 
-					<Route component={PageNotFound} />
-				</Switch>
+                <ContactBanner />
+              </Fragment>
+            )}
+          />
 
-				<Pagefooter />
-			</section>
-		</Router>
-	);
+          <Route
+            exact
+            path="/showcase/:id"
+            render={(props) => (
+              <Fragment>
+                <ShowcasePage />
+                <ContactBanner />
+              </Fragment>
+            )}
+          />
+
+          <Route
+            exact
+            path="/contact"
+            render={(props) => (
+              <Fragment>
+                <Helmet>
+                  <title>Anushka Wijegoonawardana | Let's Have a Chat</title>
+                </Helmet>
+
+                <ContactHeroBanner />
+
+                <ContactCards />
+
+                <ContactMapForm />
+
+                <PortfolioBanner />
+              </Fragment>
+            )}
+          />
+
+          <Route component={PageNotFound} />
+        </Switch>
+
+        <WhatsAppWidget
+          phoneNumber="94711971313"
+          message="Hello there, Just let me know what can i do for you."
+          companyName="I am Anushka"
+        />
+        <Pagefooter />
+      </section>
+    </Router>
+  );
 }
 
 export default App;
