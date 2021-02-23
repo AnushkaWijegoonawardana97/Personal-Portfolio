@@ -16,27 +16,33 @@
 @import "scss/Components/spinner";
 
 body {
-	color: $primaryColor;
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  color: $primaryColor;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {
-	text-decoration: unset;
+  text-decoration: unset;
 }
 
 @include screen-sm {
-	.container {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-	.skillSilder {
-		overflow: hidden !important;
-	}
+  .skillSilder {
+    overflow: hidden !important;
+  }
 
-	.slick-arrow {
-		display: none !important;
-	}
+  .slick-arrow {
+    display: none !important;
+  }
+}
+
+// WhatsApp Message Icon
+._1bpcM {
+  background-color: $primaryColor !important;
+  color: $secondaryColor !important;
 }
