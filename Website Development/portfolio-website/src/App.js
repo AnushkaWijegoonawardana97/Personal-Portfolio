@@ -32,14 +32,19 @@ import "../node_modules/react-whatsapp-widget/dist/index.css";
 import { Helmet } from "react-helmet";
 
 import ReactGA from "react-ga";
-import auth from "auth0-js";
-import { createBrowserHistory } from "history";
 
 function App() {
   const [timelineitems, settimelineitems] = useState([]);
   const [technology, settechnology] = useState([]);
   const [portfolios, setportfolios] = useState([]);
   const [loading, setloading] = useState(false);
+
+  // Google Analitics
+  useEffect(() => {
+    ReactGA.initialize("UA-166326853-1");
+
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   // Fetch Timeline Data
   useEffect(() => {
@@ -103,22 +108,8 @@ function App() {
 
   //
 
-  const history = createBrowserHistory();
-
-  const trackingID = "G-YCJWTS6KH6";
-  ReactGA.initialize(trackingID);
-  //   ReactGA.set({
-  //     userId: auth.currentUserId(),
-  //   });
-
-  history.listen((loaction) => {
-    ReactGA.set({ page: loaction.pathname });
-    // eslint-disable-next-line no-restricted-globals
-    ReactGA.pageview(location.pathname);
-  });
-
   return (
-    <Router history={history}>
+    <Router>
       <Overlayer />
       <Navbar />
 
@@ -139,6 +130,18 @@ function App() {
 
                 <HomeServices />
 
+                <amp-ad
+                  width="100vw"
+                  height="320"
+                  type="adsense"
+                  data-ad-client="ca-pub-3647297442101402"
+                  data-ad-slot="6669934067"
+                  data-auto-format="rspv"
+                  data-full-width=""
+                >
+                  <div overflow=""></div>
+                </amp-ad>
+
                 <LineSperator />
 
                 <section className="sectionPadding">
@@ -148,6 +151,18 @@ function App() {
                 </section>
 
                 <ContactBanner />
+
+                <amp-ad
+                  width="100vw"
+                  height="320"
+                  type="adsense"
+                  data-ad-client="ca-pub-3647297442101402"
+                  data-ad-slot="6669934067"
+                  data-auto-format="rspv"
+                  data-full-width=""
+                >
+                  <div overflow=""></div>
+                </amp-ad>
               </Fragment>
             )}
           />
