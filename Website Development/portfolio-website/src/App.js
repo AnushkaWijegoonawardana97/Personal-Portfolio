@@ -1,44 +1,21 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import axios from "axios";
-
-import AboutHeroBanner from "./components/AboutPage/AboutHeroBanner";
-import ContactCards from "./components/Contactpage/ContactCards";
-import ContactHeroBanner from "./components/Contactpage/ContactHeroBanner";
-import ContactMapForm from "./components/Contactpage/ContactMapForm";
-import HomeHeroBanner from "./components/Homepage/HomeHeroBanner";
-import HomeServices from "./components/Homepage/HomeServices";
-import ImageBanner from "./components/ImageBanner";
-import PortfolioHeroBanner from "./components/Portfoliopage/PortfolioHeroBanner";
-
-import ContactBanner from "./layouts/ContactBanner";
-import LineSperator from "./layouts/LineSperator";
 import Navbar from "./layouts/Navbar";
 import Overlayer from "./layouts/Overlayer";
 import Pagefooter from "./layouts/Pagefooter";
-import PortfolioBanner from "./layouts/PortfolioBanner";
-import Timeline from "./components/Timeline/Timeline";
-import TimelineHeader from "./components/Timeline/TimelineHeader";
-import SkillSlider from "./components/SkillSlider/SkillSlider";
-import PortfolioHeader from "./components/Portfolio/PortfolioHeader";
-import PortfolioGrid from "./components/Portfolio/PortfolioGrid";
-import ShowcaseGrid from "./components/Showcase/ShowcaseGrid";
-import ShowcasePage from "./components/SingleShowcase/ShowcasePage";
 import PageNotFound from "./layouts/PageNotFound";
-
+import ReactGA from "react-ga";
 import WhatsAppWidget from "react-whatsapp-widget";
 import "../node_modules/react-whatsapp-widget/dist/index.css";
-import { Helmet } from "react-helmet";
+import Spinner from "./layouts/Spinner";
 
-import ReactGA from "react-ga";
+const Homepage = lazy(() => import("./layouts/Homepage"));
+const Aboutpage = lazy(() => import("./layouts/Aboutpage"));
+const Showcasepage = lazy(() => import("./layouts/Showcasepage"));
+const Showcaseitempage = lazy(() => import("./layouts/Showcaseitempage"));
+const Contactpage = lazy(() => import("./layouts/Contactpage"));
 
 function App() {
-  const [timelineitems, settimelineitems] = useState([]);
-  const [technology, settechnology] = useState([]);
-  const [portfolios, setportfolios] = useState([]);
-  const [loading, setloading] = useState(false);
-
   // Google Analitics
   useEffect(() => {
     ReactGA.initialize("UA-166326853-1");
@@ -46,213 +23,32 @@ function App() {
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
 
-  // Fetch Timeline Data
-  useEffect(() => {
-    const fetchTimelineItems = async () => {
-      setloading(true);
-      const response = await axios(
-        "https://aw-personal-portfolio-default-rtdb.firebaseio.com/experiences.json"
-      );
-
-      const fetchedTimelineItems = [];
-      for (let key in response.data) {
-        fetchedTimelineItems.push({ ...response.data[key], id: key });
-      }
-
-      settimelineitems(fetchedTimelineItems);
-      setloading(false);
-    };
-
-    fetchTimelineItems();
-  }, []);
-
-  // Fetching Technologies & Skills Data
-  useEffect(() => {
-    const fetchTechSkill = async () => {
-      setloading(true);
-      const response = await axios(
-        "https://aw-personal-portfolio-default-rtdb.firebaseio.com/technologies.json"
-      );
-
-      const fetchedTechnologyItems = [];
-      for (let key in response.data) {
-        fetchedTechnologyItems.push({ ...response.data[key], id: key });
-      }
-
-      settechnology(fetchedTechnologyItems);
-      setloading(false);
-    };
-
-    fetchTechSkill();
-  }, []);
-
-  // Fetching Portfolios
-  useEffect(() => {
-    const fetchPortfolios = async () => {
-      setloading(true);
-      const response = await axios(
-        "https://aw-personal-portfolio-default-rtdb.firebaseio.com/portfolios.json"
-      );
-
-      const fetchedPortfolioItems = [];
-      for (let key in response.data) {
-        fetchedPortfolioItems.push({ ...response.data[key], id: key });
-      }
-
-      setportfolios(fetchedPortfolioItems);
-      setloading(false);
-    };
-
-    fetchPortfolios();
-  }, []);
-
-  //
-
   return (
     <Router>
       <Overlayer />
       <Navbar />
 
-      <section className="container sectionPadding sectionPadding-to">
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={(props) => (
-              <Fragment>
-                <Helmet>
-                  <title>Anushka Wijegoonawardana | Homepage</title>
-                </Helmet>
+      <section className='container sectionPadding sectionPadding-to'>
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route exact path='/' component={Homepage} />
 
-                <HomeHeroBanner />
+            <Route exact path='/about' component={Aboutpage} />
 
-                <ImageBanner imgClass={"homepage"} />
+            <Route exact path='/showcase' component={Showcasepage} />
 
-                <HomeServices />
+            <Route exact path='/showcase/:id' component={Showcaseitempage} />
 
-                <amp-ad
-                  width="100vw"
-                  height="320"
-                  type="adsense"
-                  data-ad-client="ca-pub-3647297442101402"
-                  data-ad-slot="6669934067"
-                  data-auto-format="rspv"
-                  data-full-width=""
-                >
-                  <div overflow=""></div>
-                </amp-ad>
+            <Route exact path='/contact' component={Contactpage} />
 
-                <LineSperator />
-
-                <section className="sectionPadding">
-                  <PortfolioHeader />
-
-                  <PortfolioGrid loading={loading} portfolios={portfolios} />
-                </section>
-
-                <ContactBanner />
-
-                <amp-ad
-                  width="100vw"
-                  height="320"
-                  type="adsense"
-                  data-ad-client="ca-pub-3647297442101402"
-                  data-ad-slot="6669934067"
-                  data-auto-format="rspv"
-                  data-full-width=""
-                >
-                  <div overflow=""></div>
-                </amp-ad>
-              </Fragment>
-            )}
-          />
-
-          <Route
-            exact
-            path="/about"
-            render={(props) => (
-              <Fragment>
-                <Helmet>
-                  <title>Anushka Wijegoonawardana | All About Me</title>
-                </Helmet>
-
-                <AboutHeroBanner />
-
-                <ImageBanner imgClass={"aboutpage"} />
-
-                <section className="sectionPadding">
-                  <TimelineHeader />
-
-                  <Timeline loading={loading} timelineitems={timelineitems} />
-                </section>
-
-                <SkillSlider
-                  loading={loading}
-                  technologies={technology}
-                  slideRowCount={2}
-                />
-
-                <PortfolioBanner />
-              </Fragment>
-            )}
-          />
-
-          <Route
-            exact
-            path="/showcase"
-            render={(props) => (
-              <Fragment>
-                <Helmet>
-                  <title>Anushka Wijegoonawardana | The Things I Did</title>
-                </Helmet>
-
-                <PortfolioHeroBanner />
-
-                <ShowcaseGrid loading={loading} portfolios={portfolios} />
-
-                <ContactBanner />
-              </Fragment>
-            )}
-          />
-
-          <Route
-            exact
-            path="/showcase/:id"
-            render={(props) => (
-              <Fragment>
-                <ShowcasePage />
-                <ContactBanner />
-              </Fragment>
-            )}
-          />
-
-          <Route
-            exact
-            path="/contact"
-            render={(props) => (
-              <Fragment>
-                <Helmet>
-                  <title>Anushka Wijegoonawardana | Let's Have a Chat</title>
-                </Helmet>
-
-                <ContactHeroBanner />
-
-                <ContactCards />
-
-                <ContactMapForm />
-
-                <PortfolioBanner />
-              </Fragment>
-            )}
-          />
-
-          <Route component={PageNotFound} />
-        </Switch>
+            <Route component={PageNotFound} />
+          </Switch>
+        </Suspense>
 
         <WhatsAppWidget
-          phoneNumber="94711971313"
-          message="Hello there, Just let me know what can i do for you."
-          companyName="I am Anushka"
+          phoneNumber='94711971313'
+          message='Hello there, Just let me know what can i do for you.'
+          companyName='I am Anushka'
         />
         <Pagefooter />
       </section>
